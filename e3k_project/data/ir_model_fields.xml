@@ -1,0 +1,992 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+
+    <data noupdate="1">
+    
+    <!-- <record id="partner_sharepoint_folder_url" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">Sharpoint Folder</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">res.partner</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="name">x_sharepoint_folder_url</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+
+    <record id="partner_onenote_notebook_url" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">OneNote Notebook</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">res.partner</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="name">x_onenote_notebook_url</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+
+    <record id="task_sharepoint_folder_url" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">Sharpoint Folder</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">project.task</field>
+        <field name="model_id" ref="project.model_project_task"/>
+        <field name="name">x_sharepoint_folder_url</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related">partner_id.x_sharepoint_folder_url</field>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+
+    <record id="task_onenote_notebook_url" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">OneNote Notebook</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">project.task</field>
+        <field name="model_id" ref="project.model_project_task"/>
+        <field name="name">x_onenote_notebook_url</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related">partner_id.x_onenote_notebook_url</field>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+
+    <record id="priority_field" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">Priority</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">project.task</field>
+        <field name="model_id" ref="project.model_project_task"/>
+        <field name="name">x_priority_field</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection">[["1","1"],["2","2"],["3","3"],["4","4"],["5","5"],["6","6"],["7","7"]]</field>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">selection</field>
+    </record>
+
+    <record id="partner_odoosh_url" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">Odoo.sh</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">res.partner</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="name">x_odoosh_url</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+
+    <record id="partner_github_url" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">Github</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">res.partner</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="name">x_github_url</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+
+    <record id="partner_production_url" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">Production URL</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">res.partner</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="name">x_production_url</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+
+    <record id="partner_staging_url" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">Staging URL</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">res.partner</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="name">x_staging_url</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+
+    <record id="partner_test_url" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">Test URL</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">res.partner</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="name">x_test_url</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+
+    <record id="partner_ssh_user" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">SSH User</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">res.partner</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="name">x_ssh_user</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+
+    <record id="partner_ssh_port" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">SSH Port</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">res.partner</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="name">x_ssh_port</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+
+    <record id="partner_ssh_host" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">SSH Host</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">res.partner</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="name">x_ssh_host</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+
+    <record id="partner_ssh_command" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">SSH Command</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">res.partner</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="name">x_ssh_command</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+
+    <record id="partner_vpnip_restriction" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">VPN/IP Restriction</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">res.partner</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="name">x_vpnip_restriction</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">boolean</field>
+    </record>
+
+    <record id="partner_vpnip_details" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">VPN/IP Details</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">res.partner</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="name">x_vpnip_details</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">text</field>
+    </record>
+
+    <record id="partner_connexion_details" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">Connexion Details</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">res.partner</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="name">x_connexion_details</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">text</field>
+    </record>
+
+    <record id="partner_is_odoo_partner" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">Odoo Partner</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">res.partner</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="name">x_is_odoo_partner</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">boolean</field>
+    </record>
+
+    <record id="task_is_odoo_partner" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">Odoo Partner</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">project.task</field>
+        <field name="model_id" ref="project.model_project_task"/>
+        <field name="name">x_is_odoo_partner</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related">partner_id.x_is_odoo_partner</field>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">boolean</field>
+    </record>
+
+    <record id="task_github_url" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">Github</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">project.task</field>
+        <field name="model_id" ref="project.model_project_task"/>
+        <field name="name">x_github_url</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related">partner_id.x_github_url</field>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+
+    <record id="task_odoosh_url" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">Odoo.sh</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">project.task</field>
+        <field name="model_id" ref="project.model_project_task"/>
+        <field name="name">x_odoosh_url</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related">partner_id.x_odoosh_url</field>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+
+    <record id="task_production_url" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">Production URL</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">project.task</field>
+        <field name="model_id" ref="project.model_project_task"/>
+        <field name="name">x_production_url</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related">partner_id.x_production_url</field>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+
+    <record id="task_staging_url" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">Staging URL</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">project.task</field>
+        <field name="model_id" ref="project.model_project_task"/>
+        <field name="name">x_staging_url</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related">partner_id.x_staging_url</field>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+
+    <record id="task_test_url" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">Test URL</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">project.task</field>
+        <field name="model_id" ref="project.model_project_task"/>
+        <field name="name">x_test_url</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related">partner_id.x_test_url</field>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+
+    <record id="task_ssh_user" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">SSH User</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">project.task</field>
+        <field name="model_id" ref="project.model_project_task"/>
+        <field name="name">x_ssh_user</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related">partner_id.x_ssh_user</field>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+
+    <record id="task_ssh_port" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">SSH Port</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">project.task</field>
+        <field name="model_id" ref="project.model_project_task"/>
+        <field name="name">x_ssh_port</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related">partner_id.x_ssh_port</field>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+
+    <record id="task_ssh_host" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">SSH Host</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">project.task</field>
+        <field name="model_id" ref="project.model_project_task"/>
+        <field name="name">x_ssh_host</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related">partner_id.x_ssh_host</field>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+
+    <record id="task_ssh_command" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">SSH Command</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">project.task</field>
+        <field name="model_id" ref="project.model_project_task"/>
+        <field name="name">x_ssh_command</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related">partner_id.x_ssh_command</field>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+
+    <record id="task_vpnip_restrictions" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">VPN/IP Restrictions</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">project.task</field>
+        <field name="model_id" ref="project.model_project_task"/>
+        <field name="name">x_vpnip_restriction</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related">partner_id.x_vpnip_restriction</field>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">boolean</field>
+    </record>
+
+    <record id="task_vpnip_details" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">VPN/IP Details</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">project.task</field>
+        <field name="model_id" ref="project.model_project_task"/>
+        <field name="name">x_vpnip_details</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related">partner_id.x_vpnip_details</field>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">text</field>
+    </record>
+
+    <record id="taks_connexion_details" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">Connexion Details</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">project.task</field>
+        <field name="model_id" ref="project.model_project_task"/>
+        <field name="name">x_connexion_details</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related">partner_id.x_connexion_details</field>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">text</field>
+    </record>
+
+    <record id="task_has_branch" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">Branch URLs</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">project.task</field>
+        <field name="model_id" ref="project.model_project_task"/>
+        <field name="name">x_has_branch</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">boolean</field>
+    </record>
+
+    <record id="task_odoosh_branch_url" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">Odoo.sh Branch</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">project.task</field>
+        <field name="model_id" ref="project.model_project_task"/>
+        <field name="name">x_odoosh_branch_url</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+
+    <record id="task_github_branch_url" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="field_description">Github Branch</field>
+        <field name="groups" eval="[(6, 0, [])]"/>
+        <field name="help" eval="False"/>
+        <field name="index" eval="False"/>
+        <field name="model">project.task</field>
+        <field name="model_id" ref="project.model_project_task"/>
+        <field name="name">x_github_branch_url</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="relation_field" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="tracking" eval="False"/>
+        <field name="translate" eval="False"/>
+        <field name="ttype">char</field>
+    </record> -->
+</data>
+</odoo>

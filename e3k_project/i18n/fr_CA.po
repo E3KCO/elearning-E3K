@@ -1,0 +1,283 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* e3k_project
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-02 15:21+0000\n"
+"PO-Revision-Date: 2021-02-02 15:21+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: e3k_project
+#: model:ir.model.fields,field_description:e3k_project.field_project_project__activate_notification
+msgid "Activate notifications"
+msgstr "Activer les notifications"
+
+#. module: e3k_project
+#: model:ir.model.fields,field_description:e3k_project.task_has_branch
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_task_fields
+msgid "Branch URLs"
+msgstr ""
+
+#. module: e3k_project
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_partner_fields
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_task_fields
+msgid "Connexion"
+msgstr ""
+
+#. module: e3k_project
+#: model:ir.model.fields,field_description:e3k_project.partner_connexion_details
+#: model:ir.model.fields,field_description:e3k_project.taks_connexion_details
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_partner_fields
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_task_fields
+msgid "Connexion Details"
+msgstr ""
+
+#. module: e3k_project
+#: code:addons/e3k_project/models/project_project.py:0
+#, python-format
+msgid "First Reminder"
+msgstr "Premier rappel"
+
+#. module: e3k_project
+#: model:ir.model.fields,field_description:e3k_project.field_project_project__first_reminder
+msgid "First Reminder Days"
+msgstr "Premier rappel (Jour)"
+
+#. module: e3k_project
+#: model:ir.model.fields,field_description:e3k_project.partner_github_url
+#: model:ir.model.fields,field_description:e3k_project.task_github_url
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_partner_fields
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_task_fields
+msgid "Github"
+msgstr ""
+
+#. module: e3k_project
+#: model:ir.model.fields,field_description:e3k_project.task_github_branch_url
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_task_fields
+msgid "Github Branch"
+msgstr ""
+
+#. module: e3k_project
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_partner_fields
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_task_fields
+msgid "Odoo"
+msgstr ""
+
+#. module: e3k_project
+#: model:ir.model.fields,field_description:e3k_project.partner_is_odoo_partner
+#: model:ir.model.fields,field_description:e3k_project.task_is_odoo_partner
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_task_fields
+msgid "Odoo Partner"
+msgstr ""
+
+#. module: e3k_project
+#: model:ir.model.fields,field_description:e3k_project.partner_odoosh_url
+#: model:ir.model.fields,field_description:e3k_project.task_odoosh_url
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_partner_fields
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_task_fields
+msgid "Odoo.sh"
+msgstr ""
+
+#. module: e3k_project
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_partner_fields
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_task_fields
+msgid "Odoo.sh / Github"
+msgstr ""
+
+#. module: e3k_project
+#: model:ir.model.fields,field_description:e3k_project.task_odoosh_branch_url
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_task_fields
+msgid "Odoo.sh Branch"
+msgstr ""
+
+#. module: e3k_project
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_partner_fields
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_task_fields
+msgid "Office 365"
+msgstr ""
+
+#. module: e3k_project
+#: model:ir.model.fields,field_description:e3k_project.partner_onenote_notebook_url
+#: model:ir.model.fields,field_description:e3k_project.task_onenote_notebook_url
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_partner_fields
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_task_fields
+msgid "OneNote Notebook"
+msgstr ""
+
+#. module: e3k_project
+#: model:ir.model.fields,field_description:e3k_project.field_project_task__x_priority_field
+#: model:mail.activity.type,name:e3k_project.mail_activity_data_priority
+msgid "Priority"
+msgstr "Priorité"
+
+#. module: e3k_project
+#: model_terms:ir.ui.view,arch_db:e3k_project.priority_form_view
+msgid "Priorité"
+msgstr ""
+
+#. module: e3k_project
+#: model:ir.model.fields,field_description:e3k_project.partner_production_url
+#: model:ir.model.fields,field_description:e3k_project.task_production_url
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_partner_fields
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_task_fields
+msgid "Production URL"
+msgstr ""
+
+#. module: e3k_project
+#: model:ir.model,name:e3k_project.model_project_project
+msgid "Project"
+msgstr "Projet"
+
+#. module: e3k_project
+#: code:addons/e3k_project/models/project_project.py:0
+#, python-format
+msgid "Property has been changed"
+msgstr "La propriété a été modifiée"
+
+#. module: e3k_project
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_partner_fields
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_task_fields
+msgid "SSH"
+msgstr ""
+
+#. module: e3k_project
+#: model:ir.model.fields,field_description:e3k_project.partner_ssh_command
+#: model:ir.model.fields,field_description:e3k_project.task_ssh_command
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_partner_fields
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_task_fields
+msgid "SSH Command"
+msgstr ""
+
+#. module: e3k_project
+#: model:ir.model.fields,field_description:e3k_project.partner_ssh_host
+#: model:ir.model.fields,field_description:e3k_project.task_ssh_host
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_partner_fields
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_task_fields
+msgid "SSH Host"
+msgstr ""
+
+#. module: e3k_project
+#: model:ir.model.fields,field_description:e3k_project.partner_ssh_port
+#: model:ir.model.fields,field_description:e3k_project.task_ssh_port
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_partner_fields
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_task_fields
+msgid "SSH Port"
+msgstr ""
+
+#. module: e3k_project
+#: model:ir.model.fields,field_description:e3k_project.partner_ssh_user
+#: model:ir.model.fields,field_description:e3k_project.task_ssh_user
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_partner_fields
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_task_fields
+msgid "SSH User"
+msgstr ""
+
+#. module: e3k_project
+#: model:ir.actions.server,name:e3k_project.task_deadline_scheduler_ir_actions_server
+#: model:ir.cron,cron_name:e3k_project.task_deadline_scheduler
+#: model:ir.cron,name:e3k_project.task_deadline_scheduler
+msgid "Scheduler Notification Task Expired"
+msgstr ""
+
+#. module: e3k_project
+#: code:addons/e3k_project/models/project_project.py:0
+#, python-format
+msgid "Second Reminder"
+msgstr "Deuxième rappel"
+
+#. module: e3k_project
+#: model:ir.model.fields,field_description:e3k_project.field_project_project__second_reminder
+msgid "Second Reminder  Days"
+msgstr "Deuxième rappel (Jour)"
+
+#. module: e3k_project
+#: model:ir.model.fields,field_description:e3k_project.field_project_project__send_to_manager
+msgid "Send To Manager"
+msgstr "Envoyer au Responsable du projet"
+
+#. module: e3k_project
+#: model:ir.model.fields,field_description:e3k_project.field_project_project__send_to_responsible
+msgid "Send To Responsible"
+msgstr "Envoyer au responsable de la Tâche"
+
+#. module: e3k_project
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_partner_fields
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_task_fields
+msgid "Sharepoint Folder"
+msgstr ""
+
+#. module: e3k_project
+#: model:ir.model.fields,field_description:e3k_project.partner_sharepoint_folder_url
+#: model:ir.model.fields,field_description:e3k_project.task_sharepoint_folder_url
+msgid "Sharpoint Folder"
+msgstr ""
+
+#. module: e3k_project
+#: model:ir.model.fields,field_description:e3k_project.field_project_project__stage_ids
+msgid "Stages of the notification"
+msgstr "Étapes de la notification"
+
+#. module: e3k_project
+#: model:ir.model.fields,field_description:e3k_project.partner_staging_url
+#: model:ir.model.fields,field_description:e3k_project.task_staging_url
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_partner_fields
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_task_fields
+msgid "Staging URL"
+msgstr ""
+
+#. module: e3k_project
+#: model_terms:ir.ui.view,arch_db:e3k_project.task_kanban_subtask
+msgid "Sub-task(s)"
+msgstr "Sous-Tâche(s)"
+
+#. module: e3k_project
+#: model:ir.model,name:e3k_project.model_project_task
+msgid "Task"
+msgstr "Tâche"
+
+#. module: e3k_project
+#: model_terms:ir.ui.view,arch_db:e3k_project.view_edit_project_inherit
+msgid "Task Deadline Manager"
+msgstr "Notification des tâches"
+
+#. module: e3k_project
+#: model:ir.model.fields,field_description:e3k_project.partner_test_url
+#: model:ir.model.fields,field_description:e3k_project.task_test_url
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_partner_fields
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_task_fields
+msgid "Test URL"
+msgstr ""
+
+#. module: e3k_project
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_partner_fields
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_task_fields
+msgid "URLs"
+msgstr ""
+
+#. module: e3k_project
+#: model:ir.model.fields,field_description:e3k_project.partner_vpnip_details
+#: model:ir.model.fields,field_description:e3k_project.task_vpnip_details
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_partner_fields
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_task_fields
+msgid "VPN/IP Details"
+msgstr ""
+
+#. module: e3k_project
+#: model:ir.model.fields,field_description:e3k_project.partner_vpnip_restriction
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_partner_fields
+msgid "VPN/IP Restriction"
+msgstr ""
+
+#. module: e3k_project
+#: model:ir.model.fields,field_description:e3k_project.task_vpnip_restrictions
+#: model_terms:ir.ui.view,arch_db:e3k_project.odoo_task_fields
+msgid "VPN/IP Restrictions"
+msgstr ""

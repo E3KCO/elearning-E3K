@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="hr_leave_report_calendar_form_inherit" model="ir.ui.view">
+		<field name="name">hr.leave.report.calendar.form</field>
+		<field name="model">hr.leave.report.calendar</field>
+		<field name="inherit_id"
+		       ref="hr_holidays.hr_leave_report_calendar_view_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='employee_id']" position="after">
+				<field name="leave_type_id"/>
+			</xpath>
+		</field>
+	</record>
+	<record id="hr_holidays_gantt_inherit" model="ir.ui.view">
+		<field name="name">hr.holidays.gantt.inherit</field>
+		<field name="model">hr.leave.report.calendar</field>
+		<field name="inherit_id"
+		       ref="hr_holidays_gantt.hr_leave_report_calendar_view_gantt"/>
+		<field name="arch" type="xml">
+			<div t-name="gantt-popover">
+				<!--<strong>Leave Type:</strong>
+				<t t-field="leave_type_id"/>-->
+			</div>
+		</field>
+	</record>
+</odoo>
