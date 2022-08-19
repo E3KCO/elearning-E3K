@@ -14,6 +14,7 @@
         'helpdesk_sale',
         'helpdesk_timesheet',
         'sale_timesheet',
+        'e3k_psa'
     ],
     "data": [
         'views/helpdesk.xml',
