@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data noupdate="1">
+
+    <record id="mail_activity_data_priority" model="mail.activity.type">
+      <field name="name">Task Priority Notification</field>
+      <field name="icon">fa-envelope</field>
+      <field name="delay_count">0</field>
+      <field name="delay_unit">days</field>
+      <field name="delay_from">current_date</field>
+      <field name="res_model">project.task</field>
+    </record>
+
+  </data>
+</odoo>

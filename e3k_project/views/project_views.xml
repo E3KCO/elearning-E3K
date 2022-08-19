@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<!--    <record id="view_edit_project_inherit" model="ir.ui.view">-->
+	<!--        <field name="name">project.project.inherit</field>-->
+	<!--        <field name="model">project.project</field>-->
+	<!--        <field name="inherit_id" ref="project.edit_project"/>-->
+	<!--        <field name="arch" type="xml">-->
+	<!--            <xpath expr="//page[last()]" position="after">-->
+	<!--                <page name="task_deadline_manager" string='Task Deadline Manager'>-->
+	<!--                    <group col="4" name="notification">-->
+	<!--                        <field name="activate_notification"/>-->
+	<!--                        <field name="stage_ids" widget="many2many_tags"/>-->
+	<!--                    </group>-->
+	<!--                    <group col="4" name="detail">-->
+	<!--                        <field name="first_reminder"/>-->
+	<!--                        <field name="second_reminder"/>-->
+	<!--                        <field name="send_to_responsible"/>-->
+	<!--                        <field name="send_to_manager"/>-->
+	<!--                    </group>-->
+	<!--                </page>-->
+	<!--            </xpath>-->
+	<!--        </field>-->
+	<!--    </record>-->
+
+	<record id="e3k_view_task_form2_inherit" model="ir.ui.view">
+		<field name="name">e3k.project.task.form.inherit</field>
+		<field name="model">project.task</field>
+		<field name="inherit_id" ref="project.view_task_form2"/>
+		<field name="arch" type="xml">
+			<field name="child_ids" position="attributes">
+				<attribute name="context">{'default_project_id': project_id,
+				                           'default_display_project_id': project_id,
+				                           'default_user_ids': user_ids,
+				                           'default_parent_id': id,
+				                           'default_partner_id': partner_id}</attribute>
+			</field>
+			<field name="parent_id" position="after">
+				<field name="branch_name"/>
+			</field>
+		</field>
+	</record>
+
+</odoo>

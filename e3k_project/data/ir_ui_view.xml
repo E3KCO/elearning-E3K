@@ -1,0 +1,222 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+
+  <!-- <record id="priority_field_kanban_view" model="ir.ui.view">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='kanban_state']" position="after">
+          <small style="margin-left: 5px;" class="o_kanban_record_subtitle text-muted" attrs="{'invisible': [['x_priority_field',&quot;&lt;&quot;,True]]}">
+            P <field name="x_priority_field"/>
+          </small>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="project.view_task_kanban"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">project.task</field>
+    <field name="name">Priority Field Kanban View</field>
+    <field name="priority">99</field>
+    <field name="type">kanban</field>
+  </record> -->
+
+  <record id="priority_tree_view" model="ir.ui.view">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <!-- <xpath expr="//field[@name='progress']" position="replace"/>
+        <xpath expr="//field[@name='remaining_hours']" position="replace"/>
+        <xpath expr="//field[@name='planned_hours']" position="replace"/> -->
+        <xpath expr="//field[@name='sequence']" position="after">
+          <field name="id"/>
+          <field name="x_priority_field"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="project.view_task_tree2"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">project.task</field>
+    <field name="name">Priority Tree View</field>
+    <field name="priority">99</field>
+    <field name="type">tree</field>
+  </record>
+
+  <record id="priority_form_view" model="ir.ui.view">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='tag_ids']" position="after">
+          <field name="x_priority_field" string="Priorité" default_value="5" attrs="{}" widget="selection_badge"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="project.view_task_form2"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">project.task</field>
+    <field name="name">Priority Field Form View</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+
+  <!-- <record id="odoo_task_fields" model="ir.ui.view">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='sale_line_id']" position="after">
+            <field name="x_odoosh_branch_url" studio-view-group-names="Internal User"
+                    studio-view-group-ids="1"
+                    string="Odoo.sh Branch" widget="url"
+                    attrs="{'invisible': [['x_has_branch','=',False]]}"/>
+        </xpath>
+        <xpath expr="//field[@name='tag_ids']" position="after">
+            <field name="id"/>
+            <field name="x_github_branch_url" string="Github Branch" widget="url"
+                    attrs="{'invisible': [['x_has_branch','=',False]]}"/>
+        </xpath>
+        <xpath expr="//form[1]/sheet[1]/notebook[1]" position="inside">
+          <page name="studio_page_MUt9C" string="Odoo" attrs="{'invisible': [('x_is_odoo_partner', '=', False)]}">
+            <group name="studio_group_MUt9C">
+              <group name="studio_group_MUt9C_left" string="Odoo.sh / Github">
+                <field name="x_has_branch" string="Branch URLs" widget="boolean_toggle"/>
+                <field name="x_is_odoo_partner" string="Odoo Partner" widget="boolean_toggle" attrs="{}" invisible="1" modifiers="{'invisible':true}"/>
+                <field name="x_odoosh_url" string="Odoo.sh" widget="url"/>
+                <field name="x_github_url" string="Github" widget="url"/>
+              </group>
+              <group name="studio_group_MUt9C_right" string="URLs">
+                <field name="x_production_url" string="Production URL" widget="url"/>
+                <field name="x_staging_url" string="Staging URL" widget="url"/>
+                <field name="x_test_url" string="Test URL" widget="url"/>
+              </group>
+            </group>
+            <group name="studio_group_bOqld">
+              <group name="studio_group_bOqld_left" string="SSH">
+                <field name="x_ssh_user" string="SSH User" widget="CopyClipboardChar"/>
+                <field name="x_ssh_port" string="SSH Port" widget="CopyClipboardChar"/>
+                <field name="x_ssh_host" string="SSH Host" widget="CopyClipboardChar"/>
+                <field name="x_ssh_command" string="SSH Command" widget="CopyClipboardChar"/>
+              </group>
+              <group name="studio_group_bOqld_right" string="Connexion">
+                <field name="x_vpnip_restriction" string="VPN/IP Restrictions"/>
+                <field name="x_vpnip_details" string="VPN/IP Details" widget="text"/>
+                <field name="x_connexion_details" string="Connexion Details" widget="text"/>
+              </group>
+            </group>
+          </page>
+          <page name="studio_page_97aXz3" string="Office 365">
+            <group name="studio_group_97aXz3">
+              <group name="studio_group_97aXz3_left">
+                <field name="x_sharepoint_folder_url" string="Sharepoint Folder" widget="url"/>
+              </group>
+              <group name="studio_group_97aXz3_right">
+                <field name="x_onenote_notebook_url" string="OneNote Notebook" widget="url"/>
+              </group>
+            </group>
+          </page>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="project.view_task_form2"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">project.task</field>
+    <field name="name">Odoo Tasks - Project Management Fields</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record> -->
+
+  <!-- <record id="odoo_partner_fields" model="ir.ui.view">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//page[@name='sales_purchases']//group[@name='sale']/field[@name='user_id']" position="before">
+          <field name="x_is_odoo_partner"/>
+        </xpath>
+        <xpath expr="//notebook[1]" position="inside">
+          <page name="studio_page_wQ6Ub" string="Odoo" attrs="{'invisible': [('x_is_odoo_partner', '=', False)]}">
+            <group name="studio_group_bF2rp2">
+              <group name="studio_group_bF2rp_left" string="Odoo.sh / Github">
+                <field name="x_odoosh_url" string="Odoo.sh" widget="url"/>
+                <field name="x_github_url" string="Github" widget="url"/>
+              </group>
+              <group name="studio_group_bF2rp2_right" string="URLs">
+                <field name="x_production_url" string="Production URL" widget="url"/>
+                <field name="x_staging_url" string="Staging URL" widget="url"/>
+                <field name="x_test_url" string="Test URL" widget="url"/>
+              </group>
+            </group>
+            <group name="studio_group_yLyXq2">
+              <group name="studio_group_yLyXq_left" string="SSH">
+                <field name="x_ssh_user" string="SSH User" widget="CopyClipboardChar"/>
+                <field name="x_ssh_port" string="SSH Port" widget="CopyClipboardChar"/>
+                <field name="x_ssh_host" string="SSH Host" widget="CopyClipboardChar"/>
+                <field name="x_ssh_command" string="SSH Command" widget="CopyClipboardChar"/>
+              </group>
+              <group name="studio_group_yLyXq2_right" string="Connexion">
+                <field name="x_vpnip_restriction" widget="boolean" string="VPN/IP Restriction"/>
+                <field name="x_vpnip_details" string="VPN/IP Details" widget="text"/>
+                <field name="x_connexion_details" string="Connexion Details"/>
+              </group>
+            </group>
+          </page>
+          <page name="studio_page_97aXz" string="Office 365">
+            <group name="studio_group_97aXz">
+              <group name="studio_group_97aXz_left">
+                <field name="x_sharepoint_folder_url" string="Sharepoint Folder" widget="url"/>
+              </group>
+              <group name="studio_group_97aXz_right">
+                <field name="x_onenote_notebook_url" string="OneNote Notebook" widget="url"/>
+              </group>
+            </group>
+          </page>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">res.partner</field>
+    <field name="name">Odoo Partner - Project Management Fields</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record> -->
+
+  <record id="task_kanban_subtask" model="ir.ui.view">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='project_id']" position="before">
+          <field name="id" display="right"/>
+        </xpath>
+
+        <!-- <xpath expr="//templates[1]//field[@name='activity_ids']" position="after">
+          <small class="o_kanban_record_subtitle text-muted">
+            <field name="subtask_count" string="Sub-task(s)" widget="statinfo" attrs="{'invisible': [['subtask_count',&quot;&lt;&quot;,1]]}"/>
+          </small>
+        </xpath> -->
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="project.view_task_kanban"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">project.task</field>
+    <field name="name">Odoo Tasks - Subtasks on Kanban</field>
+    <field name="priority">99</field>
+    <field name="type">kanban</field>
+  </record>
+
+</odoo>
