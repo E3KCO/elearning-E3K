@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_expense_from_move" model="ir.actions.act_window">
+        <field name="name">Expenses</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.expense</field>
+        <field name="view_mode">tree,form,graph</field>
+        <field name="domain">[('account_invoice_id', '=', active_id)]</field>
+        <field name="context">{'search_default_account_invoice_id': active_id}</field>
+    </record>
+
+    <record id="account_move_view_form_inherit_sale_expenses" model="ir.ui.view">
+        <field name="name">account.move.form.inherit.expense</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="%(e3k_psa.action_expense_from_move)d" type="action" class="oe_stat_button"
+                        icon="fa-money" attrs="{'invisible':[('expense_count','=', 0)]}">
+                    <field name="expense_count" widget="statinfo" string="Expenses"/>
+                </button>
+            </xpath>
+
+            <xpath expr="//field[@name='invoice_user_id']" position="before">
+                <field name="invoice_print_report"/>
+                <field name="invoice_payment_ref"/>
+            </xpath>
+            
+            <xpath expr="//page[last()]" position="after">
+                <page name="invoice_text" string='Invoice Text' attrs="{'invisible': [('invoice_print_report', '!=', 'summary')]}">
+                   <field name="invoice_text" nolabel='1' widget='html'/>
+            	 </page>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

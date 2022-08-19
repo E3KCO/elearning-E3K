@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
-from odoo import api, fields, models, _, tools
-from dateutil.relativedelta import relativedelta
-from odoo import SUPERUSER_ID
-import nltk
-from nltk.corpus import stopwords
+from odoo import fields, models
 from spacy.lang.fr.stop_words import STOP_WORDS as fr_stop
 import logging
 

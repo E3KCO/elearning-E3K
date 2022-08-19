@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_invoice_document" inherit_id="account.report_invoice_document">
+
+            <xpath expr="//t[@t-set='address']" position="replace">
+            </xpath>
+
+            <xpath expr="//table[@name='invoice_line_table']" position="attributes">
+                <attribute name='t-if'>o.invoice_print_report != 'summary'</attribute>
+            </xpath>
+
+            <xpath expr="//table[@name='invoice_line_table']" position="after">
+                <t t-if="o.invoice_print_report == 'summary'">
+                    <span class="text-nowrap" t-field="o.invoice_text" widget='html'/>
+                </t>
+            </xpath>
+
+            <xpath expr="//t[@t-set='o']" position="after">
+                <t>
+                    <address t-field="o.partner_id"
+                             t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+                    <div t-if="o.partner_id.vat" class="mt16">
+                        <t t-if="o.company_id.country_id.vat_label" t-esc="o.company_id.country_id.vat_label"
+                           id="inv_tax_id_label"/>
+                        <t t-else="">Tax ID</t>:
+                        <span t-field="o.partner_id.vat"/>
+                    </div>
+                </t>
+            </xpath>
+
+            <!--       <xpath expr="//t[@t-else='']/td/span[@class='text-nowrap']" position="replace">       -->
+            <!--       </xpath>-->
+
+            <xpath expr="//td[@name='account_invoice_line_name']/span" position="replace">
+                <t t-if="line.product_id.can_be_expensed">
+                    <span t-field="line.product_id.name" t-options="{'widget': 'text'}"/>
+                </t>
+                <t t-else="">
+                    <span t-field="line.name" t-options="{'widget': 'text'}"/>
+                </t>
+            </xpath>
+
+            <xpath expr="//table" position="attributes">
+                <attribute name='t-if'>o.invoice_print_report == 'standard'</attribute>
+            </xpath>
+
+            <xpath expr="//table" position="before">
+                <t t-if="o.invoice_print_report == 'detail'" t-call="e3k_psa.psa_report_socanin_table"/>
+            </xpath>
+
+            <xpath expr="//div[hasclass('page')]" position="after">
+                <t t-if="o.invoice_print_report and o.invoice_print_report == 'detail'">
+                    <t t-call="e3k_psa.psa_report_socanin"/>
+                </t>
+                <t t-else="">
+                    <t t-call="e3k_psa.psa_report_standard"/>
+                </t>
+            </xpath>
+        </template>
+    </data>
+</odoo>

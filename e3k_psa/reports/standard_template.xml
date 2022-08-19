@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="psa_report_standard" name="psa_report_standard_invoice_document">
+            <t t-if="o.timesheet_ids">
+                <p style="page-break-after:always;"></p>
+                <t t-set="show_task" t-value="bool(o.timesheet_ids.mapped('task_id'))"/>
+                <t t-set="show_project" t-value="len(o.timesheet_ids.mapped('project_id')) > 1"/>
+                <div class="oe_structure"/>
+                <div class="row">
+                    <div class="col-lg-12" style="margin-top:10px;">
+                        <p style="font-size: 2em;">
+                            <span t-if="o.move_type == 'out_invoice' and o.state == 'posted'">Annex to the invoice</span>
+                            <span t-if="o.name != '/'" t-field="o.name"/>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p style="font-size: 2em;">
+                            <span>Timesheet Entries</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <style>
+                            .o_report_layout_boxed .row > div > table tr:first-child td:first-child {
+                            border-right: 1px solid #495057;
+                            }
+                            .o_report_layout_boxed .row > div > table tr:first-child td:last-child {
+                            background-color: #e9ecef;
+                            }
+                            .o_report_layout_boxed .row > div > table tr:first-child {
+                            border-bottom: none;
+                            }
+                            .o_report_layout_boxed table tr th {
+                            border: 1px solid #495057;
+                            }
+                            .o_boxed_footer, .o_boxed_header, .o_report_layout_boxed {
+                            font-size: 12px;
+                            }
+                        </style>
+                        <table class="table table-sm" style="border: 2px solid #495057;">
+                            <tr style="border-bottom: 2px solid #495057;">
+                                <th>
+                                    <span>Date</span>
+                                </th>
+                                <th>
+                                    <span>Employee</span>
+                                </th>
+                                <th t-if="show_task">
+                                    <t t-if="show_project">Project -</t>Task
+                                </th>
+                                <th>
+                                    <span>Description</span>
+                                </th>
+                                <th class="text-right">
+                                    <span>Time</span>
+                                </th>
+                                <th>
+                                    <span>Billable</span>
+                                </th>
+                            </tr>
+                            <tbody>
+                                <t t-set="show_so_line" t-value="None"/>
+                                <t t-set="show_so_line2" t-value="None"/>
+                                <t t-set="show_subtotal" t-value="None"/>
+                                <t t-set="not_billable" t-value="0"/>
+                                <t t-set="is_annex_timesheet_ids" t-value="o.get_is_annex_timesheet_ids()"/>
+
+                                <tr t-foreach="is_annex_timesheet_ids.sorted(key=lambda m: m.project_id.id)" t-as="l">
+                                    <t t-if="show_so_line">
+                                        <tr t-if="show_so_line != l.so_line">
+                                            <td/>
+                                            <td/>
+                                            <td t-if="show_task"/>
+                                            <td>
+                                                <strong>Subtotal</strong>
+                                            </td>
+                                            <td class="text-right">
+                                                <strong t-esc="sum([(l2.unit_amount if (l2.so_line == show_so_line) else 0) for l2 in o.timesheet_ids])"
+                                                        t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"/>
+                                            </td>
+                                            <td/>
+                                        </tr>
+                                    </t>
+                                    <tr t-if="show_so_line != l.so_line">
+                                        <td colspan="6" class="text-center">
+                                            <span t-field="l.so_line"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <t t-set="show_so_line" t-value="l.so_line"/>
+                                        <td>
+                                            <span t-field="l.date"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="l.user_id.partner_id.name"/>
+                                        </td>
+                                        <td t-if="show_task">
+                                            <t t-if="show_project">
+                                                <span t-field="l.project_id.name"/>
+                                            </t>
+                                            <t t-if="show_project and l.task_id">-</t>
+                                            <t t-if="l.task_id">
+                                                <span t-field="l.task_id.name"/>
+                                            </t>
+                                        </td>
+                                        <td>
+                                            <span t-field="l.name" t-options="{'widget': 'text'}"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="l.unit_amount"
+                                                  t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span>
+                                                <i class="fa fa-check" t-if="l.is_billable == True"/>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tr>
+                                <tr>
+                                    <td/>
+                                    <td/>
+                                    <td t-if="show_task"/>
+                                    <td>
+                                        <strong>Subtotal</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <strong t-esc="sum([(l2.unit_amount if (l2.so_line == show_so_line) else 0) for l2 in o.timesheet_ids])"
+                                                t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"/>
+                                    </td>
+                                    <td/>
+                                </tr>
+                                <tr style="background-color: #e9ecef !important">
+                                    <td/>
+                                    <td/>
+                                    <td t-if="show_task"/>
+                                    <td>
+                                        <strong>Total</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <strong t-esc="sum(o.timesheet_ids.mapped('unit_amount'))"
+                                                t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"/>
+                                    </td>
+                                    <td/>
+                                </tr>
+                                <t t-set="not_billable"
+                                   t-value="sum(o.timesheet_ids.filtered(lambda t: not t.is_billable).mapped('unit_amount'))"/>
+                                <tr style="background-color: #e9ecef !important" t-if="not_billable">
+                                    <td/>
+                                    <td/>
+                                    <td t-if="show_task"/>
+                                    <td>
+                                        <strong>Total non-billable hours</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <strong t-esc="not_billable"
+                                                t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"/>
+                                    </td>
+                                    <td/>
+                                </tr>
+                                <tr>
+                                    <td/>
+                                    <td/>
+                                    <td t-if="show_task"/>
+                                    <td>
+                                        <strong>Total billable hours</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <strong t-esc="sum(o.timesheet_ids.filtered(lambda t:t.is_billable).mapped('unit_amount'))"
+                                                t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"/>
+                                    </td>
+                                    <td/>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </t>
+
+
+            <t t-if="o.expense_ids">
+                <p style="page-break-after:always;"></p>
+                <div class="oe_structure"/>
+                <div class="row">
+                    <div class="col-lg-12" style="margin-top:10px;">
+                        <p style="font-size: 2em;">
+                            <span t-if="o.move_type == 'out_invoice' and o.state == 'posted'">Annex to the invoice</span>
+                            <span t-if="o.name != '/'" t-field="o.name"/>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p style="font-size: 2em;">
+                            <span>Expense Entries</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <style>
+                            .o_report_layout_boxed .row > div > table tr:first-child td:first-child {
+                            border-right: 1px solid #495057;
+                            }
+                            .o_report_layout_boxed .row > div > table tr:first-child td:last-child {
+                            background-color: #e9ecef;
+                            }
+                            .o_report_layout_boxed .row > div > table tr:first-child {
+                            border-bottom: none;
+                            }
+                            .o_report_layout_boxed table tr th {
+                            border: 1px solid #495057;
+                            }
+                            .o_boxed_footer, .o_boxed_header, .o_report_layout_boxed {
+                            font-size: 12px;
+                            }
+                        </style>
+                        <table class="table table-sm" style="border: 2px solid #495057;">
+                            <tr style="border-bottom: 2px solid #495057;">
+                                <th>
+                                    <span>Date</span>
+                                </th>
+                                <th>
+                                    <span>Employee</span>
+                                </th>
+                                <th>
+                                    <span>Description</span>
+                                </th>
+                                <th>
+                                    <span>Amount</span>
+                                </th>
+                            </tr>
+                            <tbody>
+                                <tr t-foreach="o.expense_ids" t-as="line">
+                                    <tr>
+                                        <td>
+                                            <span t-field="line.date"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.employee_id.name"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.name" t-options="{'widget': 'text'}"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.total_amount"/>
+                                        </td>
+                                    </tr>
+                                </tr>
+                                <tr>
+                                    <td/>
+                                    <td/>
+                                    <td>
+                                        <strong>Total</strong>
+                                    </td>
+                                    <td class="text-left">
+                                        <strong t-esc="sum(o.expense_ids.mapped('total_amount'))"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html charset=UTF-8"/>
+</head>
+<body>
+<table width="100%">
+    <tr><td>
+        <table width="100%" style="background-color: #e6252f; background-image: url(img/header-bg.jpg); background-repeat: no-repeat; background-size: cover; background-position: center;">
+            <tr height="35"></tr>
+                <tr>
+                    <td align="center">
+                        <img src="img/header.png" style="width: 600px; margin: 0 auto; display: block;" alt="E3K | Partenaire Technologique | Odoo">
+                    </td>
+                </tr>
+                <tr height="35"></tr>
+            </table>
+    </td></tr>
+
+    <tr style="background-image: url('img/pattern.jpg');"><td>
+        <table width="100%">
+            <td width="100%" align="center">
+                <table width="600" style="margin: 0 auto; background-color: #F4F5F5; border-bottom: 15px solid #2D2F3C;">
+                    <tr><td>
+                        <p class="text-center" style="font-family: 'Lato', arial; color: #2D2F3C; font-weight: 900; font-size: 36px; line-height: 1; margin: 10px 0;">E3k PSA</p>
+                        <table class="table table-bordered">
+                            <tr><th><p style="font-family: 'Lato', arial; color: #2D2F3C; font-weight: 900; font-size: 25px; line-height: 1; margin: 10px 0;">Résumé (1-2 phrases sur l’utilité / «features» du module) </p></th></tr>
+                            <tr><td>
+                                <p style="margin: 5px 0; color: #707593; font-weight: 500; font-size: 21px;
+                                                font-family: 'Roboto', arial; font-weight: 500;"> Afin de répondre à un besoin spécifique dans le marché des entreprises de service qui refacture du temps sur des projets, nous avons développé un module qui apporte plusieurs modifications et améliorations aux modules de base de Odoo.</p>
+                                <ul>
+                                    <li>Ajout d'une case facturable / non facturable sur les feuilles de temps</li>
+                                    <li>Mise à jour du calcul de pourcentage de feuille de temps facturable dans la tableau de suivi de projet.</li>
+                                    <li>Ajout de modèle de facture sommaires, semi-détaillé et détaillée avec annexe détail des feuille de temps et dépenses.</li>
+                                    <li>Ajout d'une vue d'analyse de transaction afin d'analyser les travaux en cours. </li>
+                                    <li>Ajout de fonctionnalité de facturation par département en plus que par employé afin de faciliter l'arrivée de nouvelles ressources dans les projets.</li>
+                                    <li>Ajout du département lié à un produit afin de configurer la facturation par département de façon automatique. </li>
+                                    <li>Ajout de refacturation de dépenses avec un pourcentage supplémentaire. </li>
+                                </ul>
+                            </td></tr>
+                            <tr><th><p style="font-family: 'Lato', arial; color: #2D2F3C; font-weight: 900; font-size: 25px; line-height: 1; margin: 10px 0;">Module(s) requis </p></th></tr>
+                            <tr><td><p style="margin: 5px 0; color: #707593; font-weight: 500; font-size: 21px;
+                                                font-family: 'Roboto', arial; font-weight: 500;">Comptabilité, Vente, Projet, feuille de temps, Note de frais </p></td></tr>
+                            <tr><th>
+                                <p style="font-family: 'Lato', arial; color: #2D2F3C; font-weight: 900; font-size: 25px; line-height: 1; margin: 10px 0;">
+                                    Étapes de mise en place / configuration du module
+                                </p>
+                            </th></tr>
+                            <tr><td>
+                                <p>Aucune configuration particulière lors de la mise en place du module.</p>
+                            </td></tr>
+                            <tr><th><p style="font-family: 'Lato', arial; color: #2D2F3C; font-weight: 900; font-size: 25px; line-height: 1; margin: 10px 0;">Fonctionnement du module </p></th></tr>
+                            <tr><td>
+                                    <h4>Automatisme facturation</h4>
+                                    <p>Le module ajoute la possibilité de lier un produit de type service facturable sur feuille de temps à un département. De cette façon, lors de la création d'un bon de commande qui crée un projet (fonction native de odoo), le paramétrage de la facturation du projet se fera automatiquement. </p>
+                                    <img style="margin: 16px 0; display: block; max-width: 100%; width: 100%;" src="img/img1.png">
+                                    <img style="margin: 16px 0; display: block; max-width: 100%; width: 100%;" src="img/img2.png">
+                                    <p>De plus, le tableau employé, plus haut, permettra d'outrepasser la configuration de son département. Un employé pourrait donc etre a un taux différent dans un projet spécifique que le reste des membre du même département que lui. </p>
+                                    <h4>Refacturation des dépenses</h4>
+                                    <p>Un tableau a été ajouté afin de pouvoir refacturer avec un pourcentage supplémentaire défini des produits de type note de frais, qu'ils soient entrée via la comptabilité ou via la module note de frais. </p>
+                                    <p>Le bouton ''mettre à jour les dépenses'' ajoutera au tableau tous les article de type ''note de frais'' avec la configuration ''Pourcentage de dépenses''. Il est possible de changer la configuration par article ou d'ajouter un article dans la tableau manuellement. </p>
+                                    <img style="margin: 16px 0; display: block; max-width: 100%; width: 100%;" src="img/img3.png">
+                                    <h4>Projets non facturable</h4>
+                                    <p>Un projet qui est créé directement à partir de l'application projet et qui n'est pas coché ''facturable'' fera en sorte que l'ajout d'une feuille de temps pour ce projet sera par défaut ''non facturable''</p>
+                                    <img style="margin: 16px 0; display: block; max-width: 100%; width: 100%;" src="img/img4.png">
+                                    <img style="margin: 16px 0; display: block; max-width: 100%; width: 100%;" src="img/img5.png">
+                                    <h4>Calcul du pourcentage de feuille de temps facturable mise à jour dans les rapport de statut de projet</h4>
+                                    <img style="margin: 16px 0; display: block; max-width: 100%; width: 100%;" src="img/img6.png">
+                                    <h4>Ajout d'une vue d'analyse des transactions. </h4>
+                                    <p>Dans le module vente, le module ajoute une vue d'analyse des transaction avec diverses options de filtre et groupement qui permet d'analyser l'avancement de travaux en cours. </p>
+                                    <img style="margin: 16px 0; display: block; max-width: 100%; width: 100%;" src="img/img7.png">
+                                    <h4>Sélection de différent type de factures</h4>
+                                    <p>Dans le bon de commande, il est possible de choisir un type de facture spécifique. Il sera ensuite possible de le modifier par facture si désiré. </p>
+                                    <img style="margin: 16px 0; display: block; max-width: 100%; width: 100%;" src="img/img8.png">
+                                    <h4>Choix des éléments à facturer</h4>
+                                    <p>Finalement, lors de la facturation, un tableau affiche l'ensemble des feuilles de temps et dépenses qui seront liés à cette facture. Il est possible de supprimer certaines lignes afin de les facturer ultérieurement. </p>
+                                    <img style="margin: 16px 0; display: block; max-width: 100%; width: 100%;" src="img/img9.png">
+                            </td><tr/>
+                        </table>
+                    </td>
+                        <td width="20"></td>
+                    </tr><tr width="20"></tr>
+                    </table>
+                </td></tr><tr height="40"></tr>
+            </table>
+        </td>
+    </tr>
+    <tr bgcolor="#F4F5F5">
+        <td bgcolor="#F4F5F5" align="center">
+            <table style="max-width: 600px; margin: 0 auto; width: 100%; font-family: Arial; text-align: center;">
+                <tr height="40"></tr>
+                <tr><td><p style="font-family: 'Lato', arial; color: #2D2F3C; font-weight: 900; font-size: 36px; line-height: 1; margin: 0;">Nos services</p></td></tr>
+                <tr height="40"></tr>
+                <tr>
+                    <td>
+                        <table width="100%" style="text-align: center;">
+                            <tr>
+                                <td width="33%" align="center">
+                                    <img src="img/service-01.png" height="60px">
+                                    <span style="color: #707593; font-weight: 400; display: block; margin-top: 15px; font-family: 'Lato', arial; font-weight: bold">Personnalisation</span>
+                                </td>
+                                <td width="33%" align="center">
+                                    <img src="img/service-02.png" height="60px">
+                                    <span style="color: #707593; font-weight: 400; display: block; margin-top: 15px; font-family: 'Lato', arial; font-weight: bold">Intégration</span>
+                                </td>
+                                <td width="33%" align="center">
+                                    <img src="img/service-03.png" height="60px">
+                                    <span style="color: #707593; font-weight: 400; display: block; margin-top: 15px; font-family: 'Lato', arial; font-weight: bold">Installation</span>
+                                </td>
+                            </tr>
+                            <tr height="40"></tr>
+                            <tr>
+                                <td width="33%" align="center">
+                                    <img src="img/service-04.png" height="60px">
+                                    <span style="color: #707593; font-weight: 400; display: block; margin-top: 15px; font-family: 'Lato', arial; font-weight: bold">Création et mise à jour</span>
+                                </td>
+                                <td width="33%" align="center">
+                                    <img src="img/service-05.png" height="60px">
+                                    <span style="color: #707593; font-weight: 400; display: block; margin-top: 15px; font-family: 'Lato', arial; font-weight: bold">Migration</span>
+                                </td>
+                                <td width="33%" align="center">
+                                    <img src="img/service-06.png" height="60px">
+                                    <span style="color: #707593; font-weight: 400; display: block; margin-top: 15px; font-family: 'Lato', arial; font-weight: bold">Soutien technique</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr height="40"></tr>
+            </table>
+
+        </td>
+    </tr>
+
+    <tr bgcolor="#2D2F3C">
+        <td bgcolor="#2D2F3C" align="center">
+            <table width="100%">
+                <tr height="60"></tr>
+                <tr>
+                    <td align="center">
+                        <img src="img/logo.png" width="340" style="display: block; margin: 0 auto;" alt="E3K | Partenaire Technologique | Odoo">
+                    </td>
+                </tr>
+                <tr height="40"><td>&nbsp;</td></tr>
+                <tr>
+                    <td style="text-align: center; color: #fff;">
+                        <p style="margin: 0; padding: 0; font-size: 21px; font-family: 'Lato', arial; font-weight: bold;">Contactez-nous</p>
+                        <p style="margin: 10px 0 0; padding: 0; font-family: 'Roboto', arial; font-weight: 400;"><a style="color: #fff; text-decoration: none;" href="mailto:support-erp@e3k.co">support-erp@e3k.co</a> | <a style="color: #fff; text-decoration: none;" href="https://www.e3k.co">www.e3k.co</a></p>
+                    </td>
+                </tr>
+                <tr height="60"><td>&nbsp;</td></tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

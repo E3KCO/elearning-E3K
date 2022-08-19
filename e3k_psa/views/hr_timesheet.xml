@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="timesheet_view_tree_colored_2" model="ir.ui.view">
+        <field name="name">account.analytic.line.tree.hr_timesheet</field>
+        <field name="model">account.analytic.line</field>
+        <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="default_order">date</attribute>
+            </xpath>
+            <xpath expr="//tree" position="inside">
+                <field name="timesheet_invoice_id" invisible="1"/>
+                <field name="not_billable_project" invisible="1"/>
+                <field name="is_billable"
+                       attrs="{'readonly': ['|', ('timesheet_invoice_id','!=', False),
+                       ('not_billable_project','=',True)]}"
+                />
+            </xpath>
+            <xpath expr="//tree/field[@name='date']" position="attributes">
+                <attribute name="attrs">{'readonly': [('timesheet_invoice_id','!=', False)]}</attribute>
+            </xpath>
+            <xpath expr="//tree/field[@name='name']" position="attributes">
+                <attribute name="attrs">{'readonly': [('timesheet_invoice_id','!=', False)]}</attribute>
+            </xpath>
+            <xpath expr="//tree/field[@name='project_id']" position="attributes">
+                <attribute name="attrs">{'readonly': [('timesheet_invoice_id','!=', False)]}</attribute>
+            </xpath>
+            <xpath expr="//tree/field[@name='task_id']" position="attributes">
+                <attribute name="attrs">{'readonly': [('timesheet_invoice_id','!=', False)]}</attribute>
+            </xpath>
+            <xpath expr="//tree/field[@name='unit_amount']" position="attributes">
+                <attribute name="attrs">{'readonly': [('timesheet_invoice_id','!=', False)]}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_timesheet.timesheet_view_tree_user" model="ir.ui.view">
+        <field name="name">account.analytic.line.view.tree.with.user</field>
+        <field name="model">account.analytic.line</field>
+        <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_tree"/>
+        <field name="mode">primary</field>
+        <field name="priority">10</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date']" position="after">
+                <field name="employee_id" required="1" options='{"no_open": True}'
+                       attrs="{'readonly': [('timesheet_invoice_id','!=', False)]}"/>
+                <field name="user_id" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="timesheet_view_search_inherit_billable" model="ir.ui.view">
+        <field name="name">account.analytic.line.search</field>
+        <field name="model">account.analytic.line</field>
+        <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_search"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='employee_id']" position="after">
+                <field name="partner_id" string="partner"/>
+            </xpath>
+
+            <xpath expr="//filter[@name='month']" position="before">
+                <filter name="is_billable" string="Non Billable Hours" domain="[('timesheet_invoice_id', '=', False)]"/>
+                <separator/>
+            </xpath>
+            <xpath expr="//filter[@name='non_billable']" position="replace"/>
+            <xpath expr="//group/filter[@name='groupby_task']" position="after">
+                <filter string="Sales Order Line" name="groupby_sale_line_id" domain="[]"
+                        context="{'group_by':'so_line'}"/>
+                <separator/>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hr_timesheet_view_task_form2_inherited2">
+        <field name="name">project.task.form.inherited</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="hr_timesheet.view_task_form2_inherited"/>
+        <field name="groups_id" eval="[(6,0, (ref('hr_timesheet.group_hr_timesheet_user'),))]"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='timesheet_ids']/tree/field[@name='name']" position="after">
+                <field name="is_billable"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Line edition and creation from grid -->
+    <record id="timesheet_view_form_inherit_billing" model="ir.ui.view">
+        <field name="name">account.analytic.line.form.inherit.billing</field>
+        <field name="model">account.analytic.line</field>
+        <field name="inherit_id" ref="timesheet_grid.timesheet_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='task_id']" position="after">
+                <field name="name"/>
+                <field name="not_billable_project" invisible="1"/>
+                <field name="is_billable" invisible="0" attrs="{'readonly':[('not_billable_project','=',True)]}"/>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="hr_timesheet.timesheet_action_all" model="ir.actions.act_window">
+        <field name="name">All Timesheets</field>
+        <field name="res_model">account.analytic.line</field>
+        <field name="search_view_id" ref="hr_timesheet.hr_timesheet_line_search"/>
+        <field name="domain">[('project_id', '!=', False)]
+        </field>
+        <field name="context">{
+            'search_default_week':1,
+            'search_default_groupby_employee':1,
+            'search_default_groupby_project':1,
+            'search_default_groupby_task':1,
+            }
+        </field>
+    </record>
+
+
+    <record id="timesheet_grid.action_timesheet_previous_month" model="ir.actions.act_window">
+        <field name="name">Validated Timesheets Month</field>
+        <field name="res_model">account.analytic.line</field>
+        <field name="view_mode">grid,tree</field>
+        <field name="domain">[('is_timesheet', '=', True), '|', ('employee_id.timesheet_manager_id', '=', uid),
+            ('user_id', '=', uid)]
+        </field>
+        <field name="search_view_id" ref="timesheet_grid.timesheet_view_search"/>
+        <field name="context">{
+            'grid_anchor': (datetime.date.today() - relativedelta(months=1)).strftime('%Y-%m-%d'), 'grid_range':
+            'month',
+            'search_default_nonvalidated': True,
+            'search_default_my_team_timesheet': True,
+            }
+        </field>
+
+    </record>
+
+    <record id="timesheet_grid.action_timesheet_previous_week" model="ir.actions.act_window">
+        <field name="name">Validated Timesheets Week</field>
+        <field name="res_model">account.analytic.line</field>
+        <field name="view_mode">grid,tree</field>
+        <field name="domain">[('is_timesheet', '=', True), '|', ('employee_id.timesheet_manager_id', '=', uid),
+            ('user_id', '=', uid)]
+        </field>
+        <field name="search_view_id" ref="timesheet_grid.timesheet_view_search"/>
+        <field name="context">{
+            'grid_anchor': (datetime.date.today() - relativedelta(weeks=1)).strftime('%Y-%m-%d'),
+            'search_default_nonvalidated': True,
+            'search_default_my_team_timesheet': True,
+            }
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="quick_create_task_form_psa" model="ir.ui.view">
+            <field name="name">project.task.form.quick_create_psa</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.quick_create_task_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='user_ids']" position="after">
+                    <field name="recurrency" invisible="1"/>
+                    <field name="repeat_period" attrs="{'invisible': [('recurrency', '!=', True)],'required': [('recurrency', '=', True)]}"/>
+                    <label for="repeat_end" attrs="{'invisible': [('recurrency', '!=', True)]}"/>
+                    <div class="o_row" attrs="{'invisible': [('recurrency', '!=', True)]}">
+                        <field name="repeat_end" attrs="{'required': [('recurrency', '=', True)]}"/>
+                        <field name="repeat_number" attrs="{'required': [('recurrency', '=', True)]}"/>
+                        <field name="date_start" attrs="{'invisible': [('recurrency', '!=', True)], 'required': [('recurrency', '=', True)]}"/>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_task_form2_inht" model="ir.ui.view">
+            <field name="name">view.task.form2.inht</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="arch" type="xml">
+                <div name="button_box" position="inside">
+                </div>
+                <xpath expr="//group[last()]" position="after">
+                    <group>
+                        <group>
+                            <field name="recurrency"/>
+                            <field name="date_start" attrs="{'invisible': [('recurrency', '!=', True)],'required': [('recurrency', '=', True)]}"/>
+                        </group>
+                        <group>
+                            <field name="repeat_period" attrs="{'invisible': [('recurrency', '!=', True)],'required': [('recurrency', '=', True)]}"/>
+                            <label for="repeat_end" attrs="{'invisible': [('recurrency', '!=', True)]}"/>
+                            <div class="o_row" attrs="{'invisible': [('recurrency', '!=', True)]}">
+                                <field name="repeat_end" attrs="{'required': [('recurrency', '=', True)]}"/>
+                                <field name="repeat_number" attrs="{'required': [('recurrency', '=', True)]}"/>
+                            </div>
+                            <button name="update_recurrecy_lines" string="Update recurrecy" type="object" attrs="{'invisible': [('recurrency', '=', False)]}" confirm="Please confirm"/>
+                        </group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
+

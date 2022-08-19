@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="project_view_form_inherit_non_billable_project" model="ir.ui.view">
+            <field name="name">project.view.form.inherit.non.billable.project</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="priority">32</field>
+            <field name="arch" type="xml">
+
+                <field name="sale_line_employee_ids" position="after">
+                    <field name="sale_line_department_ids">
+                        <tree editable="top">
+                            <field name="department_id" options="{'no_create': True}"/>
+                            <field name="sale_line_id" options="{'no_create': True}" domain="[('order_id','=',parent.sale_order_id), ('is_service', '=', True)]"/>
+                            <field name="price_unit"/>
+                        </tree>
+                    </field>
+                </field>
+
+                <xpath expr="//page[last()]" position="after">
+                    <page string="Expense" name="expense">
+                        <group col="6">
+                            <field name="oldexpense_percent"
+                                   widget="percentage" invisible="1"/>
+                            <field name="expense_percent"
+                                   widget="percentage"/>
+                            <button name="update_expense"
+                                    string="Update expenses"
+                                    type="object"
+                                    class="oe_link oe_right"/>
+                            <button name="action_reset_percent"
+                                    string="⇒ Set Pecent to 0"
+                                    type="object"
+                                    class="oe_link oe_right"/>
+                        </group>
+
+                        <field
+                                name="expense_ids"
+                                mode="tree"
+                        >
+                            <tree
+                                    string="Expenses"
+                                    editable="bottom"
+                            >
+                                <field name="expense_id" invisible="1"/>
+                                <field name="partner_id" invisible="1"/>
+                                <field name="product_id" domain="[('can_be_expensed' ,'=', True)]"/>
+                                <field name="percent" widget="percentage"/>
+
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>
+

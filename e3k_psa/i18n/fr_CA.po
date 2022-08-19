@@ -1,0 +1,1001 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* e3k_psa
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-04-08 17:44+0000\n"
+"PO-Revision-Date: 2021-04-08 17:44+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_account_move__expense_count
+msgid "# of Expenses"
+msgstr "# de notes de frais"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.psa_report_socanin
+msgid "0.0"
+msgstr ""
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.psa_report_socanin
+msgid "<span style=\"text-decoration:underline\">EXPENSES</span>"
+msgstr "<span style=\"text-decoration:underline\">DEPENSES</span>"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.psa_report_socanin
+msgid "<span style=\"text-decoration:underline\">FEES</span>"
+msgstr "<span style=\"text-decoration:underline\">HONORAIRES</span>"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.psa_report_standard
+msgid "<span>Amount</span>"
+msgstr "<span>Montant</span>"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.psa_report_standard
+msgid "<span>Billable</span>"
+msgstr "<span>Facturable</span>"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.psa_report_standard
+msgid "<span>Date</span>"
+msgstr ""
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.psa_report_standard
+msgid "<span>Description</span>"
+msgstr ""
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.psa_report_standard
+msgid "<span>Employee</span>"
+msgstr "<span>Employé</span>"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.psa_report_standard
+msgid "<span>Expense Entries</span>"
+msgstr "<span>Entrées de temps</span>"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.psa_report_standard
+msgid "<span>Time</span>"
+msgstr "<span>Temps</span>"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.psa_report_standard
+msgid "<span>Timesheet Entries</span>"
+msgstr "<span>Entrées de temps</span>"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.psa_report_socanin_table
+msgid "<strong>EXPENSES</strong>"
+msgstr "<strong>DEPENSES</strong>"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.psa_report_socanin_table
+msgid "<strong>FEES</strong>"
+msgstr "<strong>HONORAIRES</strong>"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.psa_report_socanin_table
+msgid "<strong>Project :</strong>"
+msgstr "<strong>Projet :</strong>"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.psa_report_socanin_table
+msgid "<strong>Project manager :</strong>"
+msgstr "<strong>Gestionnaire de projet :</strong>"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.psa_report_standard
+msgid "<strong>Subtotal</strong>"
+msgstr "<strong>Sous-total</strong>"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.psa_report_socanin
+msgid "<strong>TOTAL EXPENSES</strong>"
+msgstr "<strong>TOTAL DEPENSES</strong>"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.psa_report_socanin
+msgid "<strong>Total Fees</strong>"
+msgstr "<strong>Total des frais</strong>"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.psa_report_standard
+msgid "<strong>Total billable hours</strong>"
+msgstr "Total des heures facturables"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.psa_report_standard
+msgid "<strong>Total non-billable hours</strong>"
+msgstr "Total des heures non facturables"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.psa_report_standard
+msgid "<strong>Total</strong>"
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model.constraint,message:e3k_psa.constraint_project_create_sale_order_dep_line_unique_department_per_wizard
+msgid ""
+"A Department cannot be selected more than once in the mapping. Please remove"
+" duplicate(s) and try again."
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model.constraint,message:e3k_psa.constraint_project_sale_line_department_map_uniqueness_department
+msgid ""
+"A department cannot be selected more than once in the mapping. Please remove"
+" duplicate(s) and try again."
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model.fields,help:e3k_psa.field_sale_advance_payment_inv__advance_payment_method
+msgid ""
+"A standard invoice is issued with all the order lines ready for invoicing,"
+"         according to their invoicing policy (based on ordered or delivered "
+"quantity)."
+msgstr ""
+"Une facture standard est émise avec toutes les lignes de commande prêtes à "
+"être facturées,         according to their invoicing policy (based on "
+"ordered or delivered quantity)."
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_hr_expense__account_invoice_id
+msgid "Account Invoice"
+msgstr "Facture du compte"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_sale_advance_payment_inv__so_line_ids
+msgid "Account analytic line Item"
+msgstr "Ligne d'analyse de compte"
+
+#. module: e3k_psa
+#: model:ir.model,name:e3k_psa.model_account_analytic_line_psa
+msgid "Account analytic line psa"
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_hr_expense_psa__total_amount
+msgid "Amount"
+msgstr "Montant"
+
+#. module: e3k_psa
+#: model:ir.actions.server,name:e3k_psa.ir_cron_calcul_amount_billable_ir_actions_server
+#: model:ir.cron,cron_name:e3k_psa.ir_cron_calcul_amount_billable
+#: model:ir.cron,name:e3k_psa.ir_cron_calcul_amount_billable
+#: model:ir.model.fields,field_description:e3k_psa.field_account_analytic_line__amount_billable
+msgid "Amount Billable"
+msgstr "Montant Facturable"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.view_account_analytic_line_graph_time_billing
+#: model_terms:ir.ui.view,arch_db:e3k_psa.view_account_analytic_line_pivot_time_billing
+msgid "Analytic Entries"
+msgstr "Écritures Analytiques"
+
+#. module: e3k_psa
+#: model:ir.model,name:e3k_psa.model_account_analytic_line
+#: model:ir.model.fields,field_description:e3k_psa.field_account_analytic_line_psa__account_analytic_line_id
+msgid "Analytic Line"
+msgstr "Ligne analytique"
+
+#. module: e3k_psa
+#: model:ir.actions.act_window,name:e3k_psa.action_open_timesheet
+#: model:ir.ui.menu,name:e3k_psa.menu_timesheet
+msgid "Analyze transactions"
+msgstr "Analyse des transactions"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.psa_report_socanin
+#: model_terms:ir.ui.view,arch_db:e3k_psa.psa_report_standard
+msgid "Annex to the invoice"
+msgstr "Annexe à la facture"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_sale_order_line__no_bill
+msgid "Bill"
+msgstr "Facture"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_account_analytic_line__is_billable
+#: model:ir.model.fields,field_description:e3k_psa.field_account_analytic_line_psa__is_billable
+#: model_terms:ir.ui.view,arch_db:e3k_psa.sale_order_hr_timesheet_line_search
+msgid "Billable"
+msgstr "Facturable"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.sale_order_hr_timesheet_line_search
+msgid "Billable and Timesheet"
+msgstr "Facturable et feuille de temps"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_project_tarification__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_res_users__employee_id
+msgid "Company employee"
+msgstr "Employé de la société"
+
+#. module: e3k_psa
+#: model:ir.model.fields,help:e3k_psa.field_project_task__no_billable_hours
+msgid "Computed using the sum of no billable hours."
+msgstr "Calculé en utilisant la somme des heures non facturables"
+
+#. module: e3k_psa
+#: model:ir.model,name:e3k_psa.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_sale_advance_payment_inv__advance_payment_method
+msgid "Create Invoice"
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model,name:e3k_psa.model_project_create_sale_order_dep_line
+msgid "Create SO Line from project"
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model,name:e3k_psa.model_project_create_sale_order
+msgid "Create SO from project"
+msgstr ""
+
+#. module: e3k_psa
+#: model_terms:ir.actions.act_window,help:e3k_psa.open_view_tarification_config
+msgid "Create a new tariffication"
+msgstr "Créer un nouveau tarification"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_account_analytic_line_psa__create_uid
+#: model:ir.model.fields,field_description:e3k_psa.field_hr_expense_psa__create_uid
+#: model:ir.model.fields,field_description:e3k_psa.field_project_create_sale_order_dep_line__create_uid
+#: model:ir.model.fields,field_description:e3k_psa.field_project_department_tarification__create_uid
+#: model:ir.model.fields,field_description:e3k_psa.field_project_expense__create_uid
+#: model:ir.model.fields,field_description:e3k_psa.field_project_sale_line_department_map__create_uid
+#: model:ir.model.fields,field_description:e3k_psa.field_project_tarification__create_uid
+#: model:ir.model.fields,field_description:e3k_psa.field_project_tarification_line__create_uid
+#: model:ir.model.fields,field_description:e3k_psa.field_timesheet_invoice_date__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_account_analytic_line_psa__create_date
+#: model:ir.model.fields,field_description:e3k_psa.field_hr_expense_psa__create_date
+#: model:ir.model.fields,field_description:e3k_psa.field_project_create_sale_order_dep_line__create_date
+#: model:ir.model.fields,field_description:e3k_psa.field_project_department_tarification__create_date
+#: model:ir.model.fields,field_description:e3k_psa.field_project_expense__create_date
+#: model:ir.model.fields,field_description:e3k_psa.field_project_sale_line_department_map__create_date
+#: model:ir.model.fields,field_description:e3k_psa.field_project_tarification__create_date
+#: model:ir.model.fields,field_description:e3k_psa.field_project_tarification_line__create_date
+#: model:ir.model.fields,field_description:e3k_psa.field_timesheet_invoice_date__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_project_create_sale_order_dep_line__currency_id
+#: model:ir.model.fields,field_description:e3k_psa.field_project_department_tarification__currency_id
+#: model:ir.model.fields,field_description:e3k_psa.field_project_tarification_line__currency_id
+msgid "Currency"
+msgstr "Devise"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_project_expense__partner_id
+msgid "Customer"
+msgstr "Client"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_account_analytic_line_psa__date
+#: model:ir.model.fields,field_description:e3k_psa.field_hr_expense_psa__date
+#: model_terms:ir.ui.view,arch_db:e3k_psa.sale_order_hr_timesheet_line_search
+msgid "Date"
+msgstr "Date "
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_project_task__date_start
+msgid "Date Start"
+msgstr "Date début"
+
+#. module: e3k_psa
+#: model:ir.model.fields,help:e3k_psa.field_account_move__invoice_print_report
+#: model:ir.model.fields,help:e3k_psa.field_res_partner__invoice_print_report
+#: model:ir.model.fields,help:e3k_psa.field_res_users__invoice_print_report
+#: model:ir.model.fields,help:e3k_psa.field_sale_order__invoice_print_report
+msgid "Default print invoice"
+msgstr "Facture par défaut à imprimer"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_project_create_sale_order_dep_line__department_id
+#: model:ir.model.fields,field_description:e3k_psa.field_project_department_tarification__department_id
+#: model:ir.model.fields,field_description:e3k_psa.field_project_sale_line_department_map__department_id
+msgid "Department"
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_project_create_sale_order__line_dep_ids
+msgid "Department Lines"
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model.fields,help:e3k_psa.field_project_create_sale_order_dep_line__department_id
+msgid "Department in tarification."
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model.fields.selection,name:e3k_psa.selection__account_move__invoice_print_report__detail
+#: model:ir.model.fields.selection,name:e3k_psa.selection__res_partner__invoice_print_report__detail
+#: model:ir.model.fields.selection,name:e3k_psa.selection__sale_order__invoice_print_report__detail
+msgid "Detail"
+msgstr "Détail"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_account_analytic_line_psa__display_name
+#: model:ir.model.fields,field_description:e3k_psa.field_hr_expense_psa__display_name
+#: model:ir.model.fields,field_description:e3k_psa.field_project_create_sale_order_dep_line__display_name
+#: model:ir.model.fields,field_description:e3k_psa.field_project_department_tarification__display_name
+#: model:ir.model.fields,field_description:e3k_psa.field_project_expense__display_name
+#: model:ir.model.fields,field_description:e3k_psa.field_project_sale_line_department_map__display_name
+#: model:ir.model.fields,field_description:e3k_psa.field_project_tarification__display_name
+#: model:ir.model.fields,field_description:e3k_psa.field_project_tarification_line__display_name
+#: model:ir.model.fields,field_description:e3k_psa.field_timesheet_invoice_date__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: e3k_psa
+#: model:ir.model,name:e3k_psa.model_hr_employee
+#: model:ir.model.fields,field_description:e3k_psa.field_account_analytic_line_psa__employee_id
+#: model:ir.model.fields,field_description:e3k_psa.field_hr_expense_psa__employee_id
+#: model:ir.model.fields,field_description:e3k_psa.field_project_tarification_line__employee_id
+#: model_terms:ir.ui.view,arch_db:e3k_psa.sale_order_hr_timesheet_line_search
+msgid "Employee"
+msgstr "Employé"
+
+#. module: e3k_psa
+#: model:ir.model,name:e3k_psa.model_hr_expense
+#: model:ir.model.fields,field_description:e3k_psa.field_project_expense__expense_id
+#: model:ir.model.fields,field_description:e3k_psa.field_project_project__expense_ids
+#: model_terms:ir.ui.view,arch_db:e3k_psa.project_view_form_inherit_non_billable_project
+msgid "Expense"
+msgstr "Dépense"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_project_project__expense_percent
+msgid "Expense Percent"
+msgstr "Pourcentage de dépenses"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.view_sale_advance_payment_inv_inht
+msgid "Expense to invoice"
+msgstr "Dépenses à facturer"
+
+#. module: e3k_psa
+#: model:ir.actions.act_window,name:e3k_psa.action_expense_from_move
+#: model:ir.model.fields,field_description:e3k_psa.field_account_move__expense_ids
+#: model_terms:ir.ui.view,arch_db:e3k_psa.account_move_view_form_inherit_sale_expenses
+#: model_terms:ir.ui.view,arch_db:e3k_psa.project_view_form_inherit_non_billable_project
+msgid "Expenses"
+msgstr "Dépenses"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_sale_advance_payment_inv__date_filter
+msgid "Filter date"
+msgstr "Filtrer par date"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.sale_order_hr_timesheet_line_search
+msgid "Group By"
+msgstr "Grouper par"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_project_task__no_billable_hours
+msgid "Hours No Billable"
+msgstr "Heures non facturables"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_sale_advance_payment_inv__hr_expense_line_ids
+msgid "Hr expense Item"
+msgstr "Note de frais"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_account_analytic_line_psa__id
+#: model:ir.model.fields,field_description:e3k_psa.field_hr_expense_psa__id
+#: model:ir.model.fields,field_description:e3k_psa.field_project_create_sale_order_dep_line__id
+#: model:ir.model.fields,field_description:e3k_psa.field_project_department_tarification__id
+#: model:ir.model.fields,field_description:e3k_psa.field_project_expense__id
+#: model:ir.model.fields,field_description:e3k_psa.field_project_sale_line_department_map__id
+#: model:ir.model.fields,field_description:e3k_psa.field_project_tarification__id
+#: model:ir.model.fields,field_description:e3k_psa.field_project_tarification_line__id
+#: model:ir.model.fields,field_description:e3k_psa.field_timesheet_invoice_date__id
+msgid "ID"
+msgstr "Identifiant"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_account_analytic_line__include
+#: model:ir.model.fields,field_description:e3k_psa.field_hr_expense__include
+msgid "Include"
+msgstr "Inclure"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.sale_order_hr_timesheet_line_search
+msgid "Invoice"
+msgstr "Facture"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_account_move_line__order_lines
+msgid "Invoice Lines"
+msgstr "Lignes de facturation"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_account_move__invoice_print_report
+#: model:ir.model.fields,field_description:e3k_psa.field_res_partner__invoice_print_report
+#: model:ir.model.fields,field_description:e3k_psa.field_res_users__invoice_print_report
+#: model:ir.model.fields,field_description:e3k_psa.field_sale_order__invoice_print_report
+msgid "Invoice Print Report"
+msgstr "Rapport d'impression de facture "
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.account_move_view_form_inherit_sale_expenses
+#: model_terms:ir.ui.view,arch_db:e3k_psa.view_order_form_psa
+msgid "Invoice Text"
+msgstr "Texte facture"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_account_move__invoice_text
+#: model:ir.model.fields,field_description:e3k_psa.field_sale_order__invoice_text
+msgid "Invoice text"
+msgstr "Texte facture"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_account_move__invoice_payment_ref
+msgid "Payment reference"
+msgstr "Référence du paiement"
+
+#. module: e3k_psa
+#: model:ir.model,name:e3k_psa.model_account_move
+msgid "Journal Entries"
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model,name:e3k_psa.model_account_move_line
+msgid "Journal Item"
+msgstr "Écriture comptable"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_account_analytic_line_psa____last_update
+#: model:ir.model.fields,field_description:e3k_psa.field_hr_expense_psa____last_update
+#: model:ir.model.fields,field_description:e3k_psa.field_project_create_sale_order_dep_line____last_update
+#: model:ir.model.fields,field_description:e3k_psa.field_project_department_tarification____last_update
+#: model:ir.model.fields,field_description:e3k_psa.field_project_expense____last_update
+#: model:ir.model.fields,field_description:e3k_psa.field_project_sale_line_department_map____last_update
+#: model:ir.model.fields,field_description:e3k_psa.field_project_tarification____last_update
+#: model:ir.model.fields,field_description:e3k_psa.field_project_tarification_line____last_update
+#: model:ir.model.fields,field_description:e3k_psa.field_timesheet_invoice_date____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_account_analytic_line_psa__write_uid
+#: model:ir.model.fields,field_description:e3k_psa.field_hr_expense_psa__write_uid
+#: model:ir.model.fields,field_description:e3k_psa.field_project_create_sale_order_dep_line__write_uid
+#: model:ir.model.fields,field_description:e3k_psa.field_project_department_tarification__write_uid
+#: model:ir.model.fields,field_description:e3k_psa.field_project_expense__write_uid
+#: model:ir.model.fields,field_description:e3k_psa.field_project_sale_line_department_map__write_uid
+#: model:ir.model.fields,field_description:e3k_psa.field_project_tarification__write_uid
+#: model:ir.model.fields,field_description:e3k_psa.field_project_tarification_line__write_uid
+#: model:ir.model.fields,field_description:e3k_psa.field_timesheet_invoice_date__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_account_analytic_line_psa__write_date
+#: model:ir.model.fields,field_description:e3k_psa.field_hr_expense_psa__write_date
+#: model:ir.model.fields,field_description:e3k_psa.field_project_create_sale_order_dep_line__write_date
+#: model:ir.model.fields,field_description:e3k_psa.field_project_department_tarification__write_date
+#: model:ir.model.fields,field_description:e3k_psa.field_project_expense__write_date
+#: model:ir.model.fields,field_description:e3k_psa.field_project_sale_line_department_map__write_date
+#: model:ir.model.fields,field_description:e3k_psa.field_project_tarification__write_date
+#: model:ir.model.fields,field_description:e3k_psa.field_project_tarification_line__write_date
+#: model:ir.model.fields,field_description:e3k_psa.field_timesheet_invoice_date__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: e3k_psa
+#: model:ir.model.fields.selection,name:e3k_psa.selection__project_task__repeat_period__month
+msgid "Month"
+msgstr "Mois"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.sale_order_hr_timesheet_line_search
+msgid "Move Line"
+msgstr "Ligne de facturation"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_hr_expense_psa__name
+msgid "Name"
+msgstr ""
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.sale_order_hr_timesheet_line_search
+msgid "No Timesheet Line"
+msgstr "Pas de feuille de temps"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.sale_order_hr_timesheet_line_search
+msgid "Today"
+msgstr "Aujourd'hui"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.sale_order_hr_timesheet_line_search
+msgid "Current Week"
+msgstr "Cette semaine"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.sale_order_hr_timesheet_line_search
+msgid "Current Month"
+msgstr "Ce mois-ci"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.sale_order_hr_timesheet_line_search
+msgid "Prev Month"
+msgstr "Le mois dernier"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.sale_order_hr_timesheet_line_search
+msgid "Prev Year"
+msgstr "L'année dernière"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.sale_order_hr_timesheet_line_search
+msgid "Prev Week"
+msgstr "La semaine dernière"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.sale_order_hr_timesheet_line_search
+msgid "Yesterday"
+msgstr "Hier"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.sale_order_hr_timesheet_line_search
+msgid "Current Year"
+msgstr "Cette Année"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.timesheet_view_search_inherit_billable
+msgid "Non Billable Hours"
+msgstr "Heures non facturables"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_project_project__non_billable_project
+#: model_terms:ir.ui.view,arch_db:e3k_psa.project_view_form_inherit_non_billable_project
+msgid "Non Billable Project"
+msgstr "Projet Non Facturable"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_account_analytic_line__not_billable_project
+msgid "Not Billable Project"
+msgstr "Projet Non Facturable"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_account_analytic_line__not_editable_line
+msgid "Not editable line"
+msgstr "Ligne non éditable"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_project_project__oldexpense_percent
+msgid "Oldexpense Percent"
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_project_expense__oldpercent
+msgid "Oldpercent"
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_account_analytic_line_psa__so_line
+msgid "Order Line"
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_account_move__order_id
+msgid "Order Reference"
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_sale_order_line__qty_psa
+msgid "PSA To invoice"
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_project_expense__percent
+msgid "Percent"
+msgstr "Pourcentage"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.psa_report_socanin_table
+msgid "Period ending on:"
+msgstr ""
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.view_task_form2_inht
+msgid "Please confirm"
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_hr_expense_psa__product_id
+#: model:ir.model.fields,field_description:e3k_psa.field_project_expense__product_id
+msgid "Product"
+msgstr "Article"
+
+#. module: e3k_psa
+#: model:ir.model.fields,help:e3k_psa.field_project_create_sale_order_dep_line__product_id
+msgid ""
+"Product of the sales order item. Must be a service invoiced based on "
+"timesheets on tasks."
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model,name:e3k_psa.model_project_project
+#: model:ir.model.fields,field_description:e3k_psa.field_account_analytic_line_psa__project_id
+#: model:ir.model.fields,field_description:e3k_psa.field_project_sale_line_department_map__project_id
+#: model_terms:ir.ui.view,arch_db:e3k_psa.sale_order_hr_timesheet_line_search
+msgid "Project"
+msgstr "Projet"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.psa_report_standard
+msgid "Project -"
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model,name:e3k_psa.model_project_department_tarification
+msgid "Project Department Tarification "
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model,name:e3k_psa.model_project_sale_line_department_map
+msgid "Project Sales line, department mapping"
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model,name:e3k_psa.model_project_tarification_line
+msgid "Project Tarification Line"
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model,name:e3k_psa.model_project_expense
+msgid "Project expense"
+msgstr "Dépenses du projet"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_account_analytic_line_psa__unit_amount
+msgid "Qty"
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_hr_expense_psa__quantity
+msgid "Quantity"
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_project_task__recurrency
+msgid "Recurrent"
+msgstr "Récurrent"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_project_task__repeat_period
+msgid "Repeat every"
+msgstr "Répétez tous les"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_project_task__repeat_number
+#: model:ir.model.fields.selection,name:e3k_psa.selection__project_task__repeat_end__number
+msgid "Repeat number"
+msgstr "Nombre de répétition"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_account_analytic_line__reported
+msgid "Reported"
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_project_sale_line_department_map__sale_line_id
+msgid "Sale Order Item"
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_project_project__sale_line_department_ids
+msgid "Sale line/Department map"
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model,name:e3k_psa.model_sale_advance_payment_inv
+msgid "Sales Advance Payment Invoice"
+msgstr "Facture de paiement d'avance"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.sale_order_hr_timesheet_line_search
+msgid "Sales Channel"
+msgstr "Équipe de vente"
+
+#. module: e3k_psa
+#: model:ir.model,name:e3k_psa.model_sale_order
+msgid "Sales Order"
+msgstr "Bon de vente"
+
+#. module: e3k_psa
+#: model:ir.model,name:e3k_psa.model_sale_order_line
+#: model_terms:ir.ui.view,arch_db:e3k_psa.timesheet_view_search_inherit_billable
+msgid "Sales Order Line"
+msgstr "Ligne de bons de commande"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_hr_expense__sale_order_line_id
+msgid "Sales Order Line Item"
+msgstr "Ligne de bons de commande"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_account_analytic_line__team_id
+msgid "Sales Team"
+msgstr "Équipe commerciale"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_project_create_sale_order_dep_line__product_id
+#: model:ir.model.fields,field_description:e3k_psa.field_project_department_tarification__product_id
+#: model:ir.model.fields,field_description:e3k_psa.field_project_tarification_line__product_id
+msgid "Service"
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model.fields,help:e3k_psa.field_account_analytic_line__is_timesheet_line
+msgid "Set if this analytic line represents a line of timesheet."
+msgstr ""
+"Définir si cette ligne analytique représente une ligne de feuille de temps"
+
+#. module: e3k_psa
+#: model:ir.model.fields.selection,name:e3k_psa.selection__res_partner__invoice_print_report__standard
+msgid "Standard"
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model.fields.selection,name:e3k_psa.selection__account_move__invoice_print_report__standard
+#: model:ir.model.fields.selection,name:e3k_psa.selection__sale_order__invoice_print_report__standard
+msgid "Semi-detailed"
+msgstr "Semi-détaillé"
+
+#. module: e3k_psa
+#: model:ir.model.fields.selection,name:e3k_psa.selection__account_move__invoice_print_report__summary
+#: model:ir.model.fields.selection,name:e3k_psa.selection__sale_order__invoice_print_report__summary
+msgid "Summary"
+msgstr "Sommaire"
+
+#. module: e3k_psa
+#: model:ir.model,name:e3k_psa.model_project_tarification
+#: model:ir.model.fields,field_description:e3k_psa.field_project_create_sale_order__tarification_id
+#: model_terms:ir.ui.view,arch_db:e3k_psa.tarification_view_form
+msgid "Tariffication"
+msgstr "Tarification"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_project_tarification__tarification_ids
+msgid "Tariffication Lines"
+msgstr "Lignes de tarifications"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_project_tarification__name
+#: model_terms:ir.ui.view,arch_db:e3k_psa.tarification_view_tree
+msgid "Tariffication Name"
+msgstr "Nom de tarification"
+
+#. module: e3k_psa
+#: model:ir.model.constraint,message:e3k_psa.constraint_project_department_tarification_unique_department_tarif
+msgid "Tariffication already exists for this department."
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model.constraint,message:e3k_psa.constraint_project_tarification_line_unique_employee_tarif
+msgid "Tariffication already exists for this employee."
+msgstr "La tarification existe déjà pour cet employé"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_project_tarification__department_tarification_ids
+msgid "Tariffication department Lines"
+msgstr ""
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.tarification_view_form
+msgid "Tariffication per department"
+msgstr ""
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.tarification_view_form
+msgid "Tariffication per employee"
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.actions.act_window,name:e3k_psa.open_view_tarification_config
+#: model:ir.ui.menu,name:e3k_psa.menu_project_tarifications_config
+#: model_terms:ir.ui.view,arch_db:e3k_psa.tarification_view_tree
+msgid "Tariffications"
+msgstr "Tarifications"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_project_department_tarification__tarification_id
+#: model:ir.model.fields,field_description:e3k_psa.field_project_tarification_line__tarification_id
+msgid "Tarification"
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model,name:e3k_psa.model_project_task
+#: model:ir.model.fields,field_description:e3k_psa.field_account_analytic_line_psa__task_id
+#: model_terms:ir.ui.view,arch_db:e3k_psa.psa_report_standard
+msgid "Task"
+msgstr "Tâche"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.report_invoice_document
+msgid "Tax ID"
+msgstr ""
+
+#. module: e3k_psa
+#: code:addons/e3k_psa/models/sale_order.py:0
+#: code:addons/e3k_psa/models/sale_order.py:0
+#, python-format
+msgid ""
+"There is no invoiceable line. If a product has a Delivered quantities "
+"invoicing policy, please make sure that a quantity has been delivered."
+msgstr ""
+"Il n'y a pas de ligne facturable. Si un article a pour politique de "
+"facturation \"sur base des quantités délivrées\", assurez-vous qu'une "
+"quantité ait été délivrée."
+
+#. module: e3k_psa
+#: code:addons/e3k_psa/models/account_analytic_line.py:0
+#, python-format
+msgid ""
+"This timesheet line cannot be billed: there is no Sale Order Item defined on"
+" the task, nor on the project. Please define one to save your timesheet "
+"line."
+msgstr ""
+"Cette feuille de temps ne peut pas être facturée: il n'y a pas de ligne de "
+"vente définie sur la tâche, ni sur le projet. Veuillez en définir une pour "
+"sauvegarder votre feuille de temps."
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.sale_order_hr_timesheet_line_search
+msgid "Timesheet"
+msgstr "Feuille de présence"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.sale_order_timesheet_view_tree
+msgid "Timesheet Analysis"
+msgstr "Analyse des transactions"
+
+#. module: e3k_psa
+#: model:ir.model,name:e3k_psa.model_timesheet_invoice_date
+msgid "Timesheet Invoice Date"
+msgstr ""
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.sale_order_hr_timesheet_line_search
+msgid "Timesheet Line"
+msgstr "Feuille de temps"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_hr_employee__is_timesheet_user
+msgid "Timesheet User"
+msgstr "Feuille de temps de l'utilisateur"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_sale_order_line__timesheet_ids
+#: model_terms:ir.ui.view,arch_db:e3k_psa.view_sale_advance_payment_inv_inht
+msgid "Timesheet to invoice"
+msgstr "Feuille de temps à facturer"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_project_task__repeat_end
+msgid "To"
+msgstr "à"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_account_analytic_line_psa__to_invoice
+#: model_terms:ir.ui.view,arch_db:e3k_psa.sale_order_hr_timesheet_line_search
+msgid "To invoice"
+msgstr "À facturer"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.view_sale_advance_payment_inv_inht
+msgid "Total"
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_account_analytic_line__is_timesheet_line
+#: model_terms:ir.ui.view,arch_db:e3k_psa.sale_order_hr_timesheet_line_search
+msgid "Transaction Type"
+msgstr "Type de Transaction"
+
+#. module: e3k_psa
+#: model:ir.model.fields.selection,name:e3k_psa.selection__project_task__repeat_period__2week
+msgid "Two weeks"
+msgstr "Deux semaines"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_project_create_sale_order_dep_line__price_unit
+#: model:ir.model.fields,field_description:e3k_psa.field_project_department_tarification__price_unit
+#: model:ir.model.fields,field_description:e3k_psa.field_project_sale_line_department_map__price_unit
+#: model:ir.model.fields,field_description:e3k_psa.field_project_tarification_line__price_unit
+msgid "Unit Price"
+msgstr "Prix Unitaire"
+
+#. module: e3k_psa
+#: model:ir.model.fields,help:e3k_psa.field_project_create_sale_order_dep_line__price_unit
+msgid "Unit price of the sales order item."
+msgstr ""
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.project_view_form_inherit_non_billable_project
+msgid "Update expenses"
+msgstr "Mettre à jour les dépenses"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.view_task_form2_inht
+msgid "Update recurrecy"
+msgstr "Mettre à jour la récurrence"
+
+#. module: e3k_psa
+#: model:ir.model,name:e3k_psa.model_res_users
+msgid "Users"
+msgstr "Utilisateurs"
+
+#. module: e3k_psa
+#: model:ir.model.fields.selection,name:e3k_psa.selection__project_task__repeat_period__week
+msgid "Week"
+msgstr "Semaine"
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_project_create_sale_order_dep_line__wizard_id
+msgid "Wizard"
+msgstr ""
+
+#. module: e3k_psa
+#: code:addons/e3k_psa/models/account_analytic_line.py:0
+#, python-format
+msgid "You cannot delete a billed line."
+msgstr "Vous ne pouvez pas supprimer une ligne facturée."
+
+#. module: e3k_psa
+#: model:ir.model,name:e3k_psa.model_hr_expense_psa
+msgid "hr.expense.psa"
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_sale_order_line__no_qty_psa
+msgid "iPSA not to invoice"
+msgstr ""
+
+#. module: e3k_psa
+#: model:ir.model.fields,field_description:e3k_psa.field_account_analytic_line_psa__name
+msgid "name"
+msgstr "Nom"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.timesheet_view_search_inherit_billable
+msgid "partner"
+msgstr "Partenaire"
+
+#. module: e3k_psa
+#: model_terms:ir.ui.view,arch_db:e3k_psa.project_view_form_inherit_non_billable_project
+msgid "⇒ Set Pecent to 0"
+msgstr ""
