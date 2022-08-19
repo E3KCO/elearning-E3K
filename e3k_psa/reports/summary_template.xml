@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="psa_report_summary" name="psa_report_summary_invoice_document">
+            <xpath expr="//table[@name='invoice_line_table']" position="attributes">
+                <attribute name='style'>display:none;</attribute>
+            </xpath>
+            <xpath expr="//table[@name='invoice_line_table']" position="after">
+                <span class="text-nowrap" t-field="invoice_text" widget='html'/>
+            </xpath>
+        </template>
+    </data>
+</odoo>

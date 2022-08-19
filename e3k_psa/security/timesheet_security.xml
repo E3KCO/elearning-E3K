@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <data>
+        <!--Rename See all timesheets-->
+        <function name="write" model="ir.model.data">
+            <function name="search" model="ir.model.data">
+                <value eval="[('module', '=', 'hr_timesheet'), ('name', '=', 'group_hr_timesheet_user')]"/>
+            </function>
+            <value eval="{'noupdate': False}"/>
+        </function>
+
+        <record id="hr_timesheet.group_hr_timesheet_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="base.module_category_services_timesheets"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+
+        <function name="write" model="ir.model.data">
+            <function name="search" model="ir.model.data">
+                <value
+                        eval="[('module', '=', 'hr_timesheet'), ('name', '=', 'group_hr_timesheet_user')]"/>
+            </function>
+            <value eval="{'noupdate': True}"/>
+        </function>
+
+        <function name="write" model="ir.translation">
+            <function name="search" model="ir.translation">
+                <value
+                        eval="[('module', '=', 'hr_timesheet'), ('name', '=', 'res.groups,name'), ('src', '=', 'User')]"/>
+            </function>
+            <value eval="{'value': 'Utilisateur'}"/>
+        </function>
+
+    </data>
+</odoo>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="project_create_sale_order_view_form" model="ir.ui.view">
+        <field name="name">project.create.sale.order.wizard.form.tarification</field>
+        <field name="model">project.create.sale.order</field>
+        <field name="inherit_id" ref="sale_timesheet.project_create_sale_order_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[last()]" position="after">
+                <field name="pricing_type" invisible="1"/>
+                <group attrs="{'invisible': [('pricing_type', '=', 'fixed_rate')]}">
+                    <field name="tarification_id"/>
+                </group>
+
+            </xpath>
+            <xpath expr="//field[@name='line_ids']" position="after">
+
+                <field name="line_dep_ids" nolabel="1" attrs="{'required': [('pricing_type', '=', 'employee_rate')]}">
+                    <tree editable="bottom">
+                        <field name="department_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                        <field name="product_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                        <field name="price_unit" widget='monetary'
+                               options="{'currency_field': 'currency_id', 'field_digits': True}"/>
+                        <field name="currency_id" invisible="1"/>
+                    </tree>
+                </field>
+            </xpath>
+        </field>
+    </record>
+</odoo>

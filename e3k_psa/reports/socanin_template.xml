@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="psa_report_socanin_table" name="psa_report_socanin_invoice_document_table">
+            <style type="text/css">
+                .table-sm th,
+                .table-sm td {
+                padding: 0.0rem;
+                padding-bottom: 0%;
+                }
+                .table-sp th,
+                .table-sp td {
+                padding: 0.0rem;
+                padding-bottom: 0%;
+                border: transparent !important;
+                }
+                /* Des exemples pour border-top-style */
+                .b1 {border-top:none;}
+                .b2 {border-top:hidden;}
+                .b3 {border-top:dotted;}
+                .b4 {border-top:dashed;}
+                .b5 {border-top:solid;}
+                .b6 {border-bottom:solid;}
+                .b7 {border-top:double;}
+                .b8 {border-bottom:double;}
+                .b9 {border-top:groove;}
+                .b10 {border-top:ridge;}
+                .b11 {border-top:inset;}
+                .b12 {border-top:outset;}
+            </style>
+            <t t-set="show_project" t-value="o.timesheet_ids.mapped('project_id')"/>
+            <tr t-foreach="show_project" t-as="p">
+                <t t-set="timesheet_ids" t-value="o.timesheet_ids.filtered(lambda t:t.project_id.id == p.id)"/>
+                <div class="page" name="total" style="margin-top:10px">
+                    <table class="b5 table table-sp" style="border: transparent !important;">
+                        <tr class='b5'>
+                            <td>
+                                <strong>Project :</strong>
+                                <span t-esc="p.name"/>
+                            </td>
+                        </tr>
+                        <tr class='b6'>
+                            <td>
+                                <strong>Project manager :</strong>
+                                <span t-esc="p.user_id.name"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <br/>
+                    <div id="informations">
+                        <tr>
+                            <td>Period ending on:</td>
+                            <td t-if="o.invoice_date">
+                                <span t-esc="o.invoice_date.strftime('%B %d %Y')"/>
+                            </td>
+                        </tr>
+                    </div>
+                </div>
+                <table id="t2" class="table table-sp" style="margin-top:45px;border: transparent !important;">
+                    <tr>
+                        <td style="width: 120px">
+                            <strong>FEES</strong>
+                        </td>
+                        <td class="text-right" style="background-color:transparent;">
+                            <span t-esc="sum(m.amount_billable for m in timesheet_ids if m.is_billable)"
+                                  t-options='{"widget": "monetary", "display_currency": o.currency_id}'
+                            />
+                        </td>
+                    </tr>
+                </table>
+                <table id="t2" class="table table-sp"
+                       style="margin-bottom:45px; margin-top:65px;border: transparent !important;">
+                    <tr>
+                        <td style="width: 120px">
+                            <strong>EXPENSES</strong>
+                        </td>
+                        <td class="text-right" style="background-color:transparent;">
+                            <span t-esc="sum(m.total_amount for m in o.expense_ids)"
+                                  t-options='{"widget": "monetary", "display_currency": o.currency_id}'
+                            />
+                        </td>
+                    </tr>
+                </table>
+            </tr>
+        </template>
+
+        <template id="psa_report_socanin" name="psa_report_socanin_invoice_document">
+            <style type="text/css">
+                .table-sm th,
+                .table-sm td {
+                padding: 0.0rem;
+                padding-bottom: 0%;
+                }
+                .table-sp th,
+                .table-sp td {
+                padding: 0.0rem;
+                padding-bottom: 0%;
+                border: transparent !important;
+                }
+                /* Des exemples pour border-top-style */
+                .b1 {border-top:none;}
+                .b2 {border-top:hidden;}
+                .b3 {border-top:dotted;}
+                .b4 {border-top:dashed;}
+                .b5 {border-top:solid;}
+                .b6 {border-bottom:solid;}
+                .b7 {border-top:double;}
+                .b8 {border-bottom:double;}
+                .b9 {border-top:groove;}
+                .b10 {border-top:ridge;}
+                .b11 {border-top:inset;}
+                .b12 {border-top:outset;}
+            </style>
+            <t t-set="show_project" t-value="o.timesheet_ids.mapped('project_id').sorted(key=lambda b: b.date)"/>
+            <tr t-foreach="show_project" t-as="p">
+                <t t-set="show_employee"
+                   t-value="o.timesheet_ids.filtered(lambda t:t.project_id.id == p.id).mapped('employee_id')"/>
+                <t t-set="timesheet_ids" t-value="o.timesheet_ids.filtered(lambda t:t.project_id.id == p.id)"/>
+                <p style="page-break-after:always;"></p>
+                <div class="col-lg-12">
+                    <p>
+                        <span t-if="o.move_type == 'out_invoice'">Annex to the invoice</span>
+                        <span t-if="o.name != '/'" t-field="o.name"/>
+                    </p>
+                </div>
+                <!--FEES-->
+                <t t-if="o.timesheet_ids">
+                    <t t-set="fees_total" t-value="0"/>
+
+                    <div class="page_fees">
+                        <span style="text-decoration:underline">FEES</span>
+                    </div>
+                    <tr t-foreach="show_employee" t-as="e">
+                        <div style="margin-top:35px;">
+                            <strong>
+                                <span t-esc="e.name"/>
+                            </strong>
+                        </div>
+                        <t t-set="current_subtotal" t-value="0"/>
+                        <t t-set="subtotal" t-value="0"/>
+                        <tr t-foreach="timesheet_ids.filtered(lambda t:t.employee_id.id == e.id and t.is_billable).sorted(key=lambda b: b.date)"
+                            t-as="l">
+                            <t t-set="fees_total" t-value="fees_total + (l.amount_billable if l.is_billable else 0)"/>
+                            <t t-set="current_subtotal"
+                               t-value="current_subtotal + (l.amount_billable if l.is_billable else 0)"/>
+                            <t t-set="subtotal" t-value="(l.amount_billable if l.is_billable else 0)"/>
+                            <table class="table table-sp" name="employee" style="border: transparent !important;">
+                                <tr>
+                                    <td style="width: 140px;">
+                                        <span t-field="l.name"/>
+                                    </td>
+                                    <td style="width: 60px;">
+                                        <span t-field="l.date"/>
+                                    </td>
+                                    <td style="width: 100px;">
+                                        <span t-field="l.unit_amount"/>
+                                        X
+                                        <t t-if="l.is_billable">
+                                            <span t-field="l.so_line.price_unit"/>
+                                        </t>
+                                        <t t-else="">
+                                            0.0
+                                        </t>
+                                        /H
+                                    </td>
+                                    <td class="text-right" style="width: 100px;">
+                                        <span
+                                                t-esc="subtotal"
+                                                t-options='{"widget": "monetary", "display_currency": o.currency_id}'
+                                        />
+                                    </td>
+                                </tr>
+                            </table>
+                        </tr>
+                        <div class="clearfix">
+                            <div id="total" class="row" name="total">
+                                <div t-attf-class="#{'col-4' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto">
+                                    <table class="table table-sm">
+                                        <tr class="o_total" style="">
+                                            <td>
+                                                <strong></strong>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="current_subtotal"
+                                                      t-options='{"widget": "monetary", "display_currency": o.currency_id}'
+                                                />
+                                            </td>
+                                        </tr>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </tr>
+                </t>
+
+                <div class="clearfix">
+                    <div id="fees_totals" class="row" name="fees_totals" style="margin-top:25px">
+                        <div t-attf-class="#{'col-4' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto">
+                            <table class="b8 table table-sm">
+                                <tr class="o_total" style="">
+                                    <td>
+                                        <strong>Total Fees</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-esc="fees_total"
+                                              t-options='{"widget": "monetary", "display_currency": o.currency_id}'
+                                        />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </tr>
+
+            <!--EXPENSES-->
+            <t t-if="o.expense_ids">
+                <t t-set="show_employee" t-value="o.expense_ids.mapped('employee_id')"/>
+                <p style="page-break-after:always"></p>
+                <br/>
+                <div class="page_expenses">
+                    <span style="text-decoration:underline">EXPENSES</span>
+                </div>
+                <t t-set="expenses_total" t-value="0"/>
+                <tr t-foreach="show_employee" t-as="e">
+                    <t t-set="current_subtotal" t-value="0"/>
+                    <tr t-foreach="o.expense_ids.filtered(lambda t:t.employee_id.id == e.id).sorted(key=lambda b: b.date)"
+                        t-as="line">
+                        <t t-set="expenses_total" t-value="expenses_total + line.total_amount"/>
+                        <t t-set="current_subtotal" t-value="current_subtotal + line.total_amount"/>
+                        <table class="table table-sp o_main_table" name="expense"
+                               style="border: transparent !important;">
+                            <tr>
+                                <td style="width:80px;">
+                                    <span t-field="line.employee_id.name"/>
+                                </td>
+                                <td style="width:120px;">
+                                    <span t-field="line.name"/>
+                                </td>
+                                <td style="width:60px;">
+                                    <span t-field="line.date"/>
+                                </td>
+                                <td style="width:100px;">
+                                    <span t-field="line.unit_amount"/>
+                                    X
+                                    <span t-field="line.quantity"/>
+                                </td>
+                                <td class="text-right" style="width:40px;">
+                                    <span
+                                            t-esc="line.total_amount"
+                                            t-options='{"widget": "monetary", "display_currency": o.currency_id}'
+                                    />
+                                </td>
+                            </tr>
+                        </table>
+                    </tr>
+
+                    <div class="clearfix">
+                        <div id="totalexp" class="row" name="totalexp" style="margin-bottom:25px">
+                            <div t-attf-class="#{'col-4' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto">
+                                <table class="table table-sm">
+                                    <tr class="o_total" style="">
+                                        <td class="text-right">
+                                            <span t-esc="current_subtotal"
+                                                  t-options='{"widget": "monetary", "display_currency": o.currency_id}'
+                                            />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </tr>
+                <div class="clearfix">
+                    <div id="expenses_total" class="row" name="expenses_total" style="margin-top:25px">
+                        <div t-attf-class="#{'col-4' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto">
+                            <table class="b8 table table-sm">
+                                <tr class="o_total" style="">
+                                    <td>
+                                        <strong>TOTAL EXPENSES</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-esc="expenses_total"
+                                              t-options='{"widget": "monetary", "display_currency": o.currency_id}'
+                                        />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

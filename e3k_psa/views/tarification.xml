@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="tarification_view_form" model="ir.ui.view">
+        <field name="name">tarification.view.form</field>
+        <field name="model">project.tarification</field>
+        <field name="arch" type="xml">
+            <form string="Tariffication">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+                    </group>
+                    <notebook>
+                        <page string="Tariffication per employee">
+                            <field name="tarification_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="employee_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                                    <field name="product_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                                    <field name="price_unit" widget='monetary'
+                                           options="{'currency_field': 'currency_id', 'field_digits': True}"/>
+                                    <field name="currency_id" invisible="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Tariffication per department">
+                            <field name="department_tarification_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="department_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                                    <field name="product_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                                    <field name="price_unit" widget='monetary'
+                                           options="{'currency_field': 'currency_id', 'field_digits': True}"/>
+                                    <field name="currency_id" invisible="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="tarification_view_tree" model="ir.ui.view">
+        <field name="name">project.tarification.tree</field>
+        <field name="model">project.tarification</field>
+        <field name="arch" type="xml">
+            <tree string="Tariffications">
+                <field name="name" string="Tariffication Name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="open_view_tarification_config" model="ir.actions.act_window">
+        <field name="name">Tariffications</field>
+        <field name="res_model">project.tarification</field>
+        <field name="domain">[]</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_empty_folder">
+                Create a new tariffication
+            </p>
+        </field>
+    </record>
+
+    <menuitem action="open_view_tarification_config" id="menu_project_tarifications_config" name="Tariffications"
+              parent="project.menu_project_config" sequence="50"
+              groups="project.group_project_manager"/>
+
+</odoo>

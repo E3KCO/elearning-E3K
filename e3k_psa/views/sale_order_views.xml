@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="sale.sale_advance_payment_inv_rule" model="ir.rule">
+      <field name="active" eval="False"/>
+    </record>
+    <record id="view_order_form_psa" model="ir.ui.view">
+        <field name="name">sale.order.form.sale.psa</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/tree/field[@name='qty_invoiced']" position="after">
+                <field name="qty_psa" optional="hide" invisible="0"/>
+                <field name="no_bill" optional="hide" invisible="0"/>
+                <field name="timesheet_ids" optional="hide" widget="many2many_tags" invisible="1"/>
+            </xpath>
+
+            <xpath expr="//field[@name='user_id']" position="before">
+                <field name="invoice_print_report"/>
+            </xpath>
+            
+            <xpath expr="//page[last()]" position="after">
+                <page name="invoice_text" string='Invoice Text' attrs="{'invisible': [('invoice_print_report', '!=', 'summary')]}">
+                   <field name="invoice_text" nolabel='1' widget='html'/>
+            	 </page>
+            </xpath>
+            
+        </field>
+    </record>
+
+    <record id="sale_order_timesheet_view_tree" model="ir.ui.view">
+        <field name="name">sale.order.account.analytic.line.tree</field>
+        <field name="model">account.analytic.line</field>
+        <field name="arch" type="xml">
+            <tree editable="top" string="Timesheet Analysis" decoration-muted="validated">
+                <field name="date"/>
+                <field name="employee_id"/>
+                <field name="company_id" invisible="1"/>
+                <field name="project_id"/>
+                <field name="task_id"/>
+                <field name="name"/>
+                <field name="unit_amount"/>
+                <field name="amount_billable"/>
+                <field name="is_billable"/>
+                <field name="validated" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sale_order_hr_timesheet_line_search" model="ir.ui.view">
+        <field name="name">sale.order.account.analytic.line.search</field>
+        <field name="model">account.analytic.line</field>
+        <field name="arch" type="xml">
+            <search string="Timesheet">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="project_id"/>
+                <field name="user_id"/>
+                <field name="timesheet_invoice_id"/>
+                <filter string="Billable and Timesheet" name="is_billable_and_timesheet" 
+                        domain="[('is_billable', '=', True),('is_timesheet_line', '=', True)]"/>
+                <filter string="Billable" name="is_billable" domain="[('is_billable', '=', True)]"/>
+                <filter string="Timesheet Line" name="is_timesheet" domain="[('is_timesheet', '=', True)]"/>
+                <filter string="No Timesheet Line" name="is_timesheet" domain="[('is_timesheet', '=', False)]"/>
+                <filter string="To invoice" name="to_invoice" domain="[('timesheet_invoice_id', '=', False)]"/>
+                <separator/>
+                <filter string="Today" name="today" domain="[('date', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter string="Current Week" name="current_week" domain="[('date', '&gt;=', ((context_today()-relativedelta(weeks=0,days=1, weekday=0)).strftime('%%Y-%%m-%%d'))),
+                ('date', '&lt;=', ((context_today()+relativedelta(weeks=0, weekday=6)).strftime('%%Y-%%m-%%d')))]"/>
+                <filter string="Current Month" name="this_month" domain="[('date','&lt;',(context_today()+relativedelta(months=1)).strftime('%%Y-%%m-01')), ('date','&gt;=',time.strftime('%%Y-%%m-01'))]"/>
+                <filter string="Current Year" name="this_month" domain="[('date','&gt;=',time.strftime('%%Y-01-01')), ('date','&lt;',(context_today()+relativedelta(years=1)).strftime('%%Y-01-01')), ]"/>
+                <separator/>
+                <filter string="Yesterday" name="yesterday" domain="[('date', '=', (context_today()-relativedelta(days=1)).strftime('%Y-%m-%d'))]"/>
+                <filter name="prev_week" string="Prev Week" domain="[('date', '&gt;=', ((context_today()+relativedelta(weeks=-2,days=1, weekday=0)).strftime('%%Y-%%m-%%d'))),
+                ('date', '&lt;=', ((context_today()+relativedelta(weeks=-1,weekday=6)).strftime('%%Y-%%m-%%d')))]"/>
+                <filter string="Prev Month" name="prev_month" domain="[('date','&gt;=',(context_today()-relativedelta(months=1)).strftime('%%Y-%%m-01')),('date','&lt;',time.strftime('%%Y-%%m-01'))]"/>
+                <filter string="Prev Year" name="prev_year" domain="[('date','&gt;=',(context_today()-relativedelta(years=1)).strftime('%%Y-01-01')),('date','&lt;',time.strftime('%%Y-01-01'))]"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter string="Date" name="groupby_date" domain="[]" context="{'group_by':'date'}"/>
+                    <filter string="Employee" name="groupby_employee" domain="[]" context="{'group_by':'employee_id'}"/>
+                    <filter string="Project" name="groupby_project" domain="[]" context="{'group_by':'project_id'}"/>
+                    <filter string="Invoice" name="groupby_timesheet_invoice_id"
+                            context="{'group_by':'timesheet_invoice_id'}"/>
+                    <filter string="Type de facturation" name="is_timesheet_line"
+                            context="{'group_by':'timesheet_invoice_type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_open_timesheet" model="ir.actions.act_window">
+        <field name="name">Analyse des transactions</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">account.analytic.line</field>
+        <field name="view_mode">tree,form,pivot,graph</field>
+        <field name="domain">[]</field>
+        <field name="search_view_id" ref="sale_order_hr_timesheet_line_search"/>
+    </record>
+
+    <record id="view_account_analytic_line_pivot_time_billing" model="ir.ui.view">
+        <field name="name">account.analytic.line.pivot</field>
+        <field name="model">account.analytic.line</field>
+        <field name="arch" type="xml">
+            <pivot string="Analytic Entries">
+                <field name="account_id" type="row"/>
+                <field name="amount" type="measure"/>
+                <field name="unit_amount" type="measure"/>
+                <field name="amount_billable" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_account_analytic_line_graph_time_billing" model="ir.ui.view">
+        <field name="name">account.analytic.line.graph</field>
+        <field name="model">account.analytic.line</field>
+        <field name="arch" type="xml">
+            <graph string="Analytic Entries">
+                <field name="account_id" type="row"/>
+                <field name="amount" type="measure"/>
+                <field name="unit_amount" type="measure"/>
+                <field name="amount_billable" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_sale_order_timesheet_view_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="e3k_psa.sale_order_timesheet_view_tree"/>
+        <field name="act_window_id" ref="action_open_timesheet"/>
+    </record>
+
+    <record id="pivot_action_view_order_pivot" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">pivot</field>
+        <field name="view_id" ref="e3k_psa.view_account_analytic_line_pivot_time_billing"/>
+        <field name="act_window_id" ref="action_open_timesheet"/>
+    </record>
+
+    <record id="pivot_action_view_order_graph" model="ir.actions.act_window.view">
+        <field name="sequence" eval="3"/>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="e3k_psa.view_account_analytic_line_graph_time_billing"/>
+        <field name="act_window_id" ref="action_open_timesheet"/>
+    </record>
+
+
+    <record id="ir_cron_calcul_amount_billable" model="ir.cron">
+        <field name="name">Amount Billable</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="doall" eval="False"/>
+        <field name="model_id" ref="model_account_analytic_line"/>
+        <field name="code">model.get_amount_billable()</field>
+        <field name="state">code</field>
+        <field name="active" eval="False"/>
+    </record>
+
+</odoo>
