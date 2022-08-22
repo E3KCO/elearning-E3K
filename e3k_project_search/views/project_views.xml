@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="view_project_project_filter_inherit" model="ir.ui.view">
+		<field name="name">project.project.search.inherit</field>
+		<field name="model">project.project</field>
+		<field name="inherit_id" ref="project.view_project_project_filter"/>
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='name']" position="replace">
+				<field name="name"
+				       filter_domain="['|',('name','ilike',self),('partner_id','child_of',self)]"
+				       string="Project Name"/>
+			</xpath>
+		</field>
+	</record>
+	<record id="project_task_view_search_inherit" model="ir.ui.view">
+		<field name="name">project.task.search.inherit</field>
+		<field name="model">project.task</field>
+		<field name="inherit_id"
+		       ref="project.view_task_search_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='stage_id']" position="after">
+				<field name="id"/>
+			</xpath>
+		</field>
+	</record>
+
+</odoo>
