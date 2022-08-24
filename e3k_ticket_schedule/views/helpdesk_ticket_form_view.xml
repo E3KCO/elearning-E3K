@@ -10,12 +10,12 @@
 				<xpath expr="//field[@name='user_id']" position="before">
 					<field name="ticket_assign_id" invisible="1"/>
 				</xpath>
-				<button name="assign_ticket_to_self" position="after">
+				<!--<button name="assign_ticket_to_self" position="after">
 					<button name="assign_user" string="Assigner utilisateur"
 					        type="object" class="oe_highlight"
 					        groups="helpdesk.group_helpdesk_user"
 					        attrs="{'invisible': [('user_id', '!=', False)]}"/>
-				</button>
+				</button>-->
 			</field>
 		</record>
 	</data>

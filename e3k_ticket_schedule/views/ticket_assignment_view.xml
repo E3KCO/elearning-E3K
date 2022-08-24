@@ -30,7 +30,7 @@
 			<field name="name">ticket.assignment.tree</field>
 			<field name="model">ticket.assignment</field>
 			<field name="arch" type="xml">
-				<tree string="Ticket Assignment">
+				<tree string="Ticket Assignment" create="false">
 					<field name="assign_ref"/>
 				</tree>
 			</field>

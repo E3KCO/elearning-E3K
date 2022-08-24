@@ -1,0 +1,5 @@
+<odoo noupdate="1">
+	<record id="ticket_assigment_data" model="ticket.assignment">
+		<field name="assign_ref">Assign/001</field>
+	</record>
+</odoo>

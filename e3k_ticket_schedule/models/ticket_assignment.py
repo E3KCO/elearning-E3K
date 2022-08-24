@@ -1,4 +1,17 @@
 from odoo import fields, models, api, _
+from datetime import datetime
+import pytz
+
+# from odoo.exceptions import ValidationError
+
+CANADA_TIME_ZN = pytz.timezone('America/Montreal')
+CANADA_CURRENT_TIME = datetime.now(CANADA_TIME_ZN).hour * 60 + datetime.now(CANADA_TIME_ZN).minute
+
+
+def get_time_in_mins(time):
+    hours = int('{0:02.0f}'.format(*divmod(time * 60, 60))) * 60
+    mins = int('{1:02.0f}'.format(*divmod(time * 60, 60)))
+    return hours + mins
 
 
 class TicketAssignment(models.Model):
@@ -9,16 +22,8 @@ class TicketAssignment(models.Model):
     assign_ref = fields.Char(
         string='Reference Assignation', required=True, copy=False,
         readonly=True,
-        index=True,
-        default=lambda self: _('New'))
-    ticket_assignment_ids = fields.One2many('ticket.assignment.line',
-                                            'ticket_assignment_id')
-
-    @api.model
-    def create(self, vals):
-        if vals.get('assign_ref', 'New') == 'New':
-            vals['assign_ref'] = self.env['ir.sequence'].next_by_code('ticket.assignment') or 'New'
-            return super(TicketAssignment, self).create(vals)
+        index=True)
+    ticket_assignment_ids = fields.One2many('ticket.assignment.line', 'ticket_assignment_id')
 
 
 class TicketAssignmentLine(models.Model):
@@ -36,6 +41,15 @@ class TicketAssignmentLine(models.Model):
     end_date = fields.Float(string='Heure de Fin')
     ticket_assignment_id = fields.Many2one('ticket.assignment')
 
+    """@api.constrains('start_date', 'end_date')
+    def _check_date_monday(self):
+        for line in self:
+            if line.filtered(lambda item: item.day == 'Monday') and (line.start_date <= line.end_date and line.end_date >= line.start_date):
+                raise ValidationError(_("L'assignation automatique que vous tentez de configurer est en conflit avec une autre assignation automatique existante pour la même période."))
+
+            if line.filtered(lambda item: item.day == 'Tuesday') and (line.start_date <= line.end_date and line.end_date >= line.start_date):
+                raise ValidationError(_("L'assignation automatique que vous tentez de configurer est en conflit avec une autre assignation automatique existante pour la même période."))"""
+
 
 class HelpdeskTicket(models.Model):
     _inherit = 'helpdesk.ticket'
@@ -52,20 +66,18 @@ class HelpdeskTicket(models.Model):
     )
 
     def assign_user(self):
-        from datetime import datetime
-        import pytz
-        CANADA_TIME_ZN = pytz.timezone('America/Montreal')
-        current_time = datetime.now(CANADA_TIME_ZN).hour*60 + datetime.now(CANADA_TIME_ZN).minute
         day = datetime.now(CANADA_TIME_ZN).strftime('%A')
-        if not self.ticket_assign_id:
-            self.ticket_assign_id = self._get_unique_ticket_assignment_value()
-
         if self.ticket_assign_id:
             for line in self.ticket_assign_id.mapped('ticket_assignment_ids'):
-                start_time = int('{0:02.0f}'.format(*divmod(line.start_date * 60, 60)))*60 + int('{1:02.0f}'.format(*divmod(line.start_date * 60, 60)))
-                end_time = int('{0:02.0f}'.format(*divmod(line.end_date * 60, 60)))*60 + int('{1:02.0f}'.format(*divmod(line.end_date * 60, 60)))
-                if day == line.day and (start_time <= current_time and end_time >= end_time):
+                start_time = get_time_in_mins(line.start_date)
+                end_time = get_time_in_mins(line.end_date)
+                if day == line.day and (start_time <= CANADA_CURRENT_TIME and end_time >= CANADA_CURRENT_TIME):
                     self.user_id = line.responsible_id
                 else:
                     self.user_id = False
-                return
+
+    @api.model
+    def create(self, vals):
+        res = super(HelpdeskTicket, self).create(vals)
+        res.assign_user()
+        return res
